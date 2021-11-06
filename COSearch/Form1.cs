@@ -53,30 +53,32 @@ namespace COSearch
         private void Button1_Click(object sender, EventArgs e)
         {
             var currentSeed = currentSeedBox1.Seed;
-            var targetSeed = targetSeedBox1.Seed.PrevSeed((uint)TargetStepBox.Value);
 
-            var d = targetSeed.GetIndex(currentSeed);
-            if(d > 500000)
+            var targetStep = (uint)TargetStepBox.Value;
+
+            if (targetStep > 500000)
             {
-                MessageBox.Show($"目標seedが遠すぎます.\r\n{d}消費をとにかくバトルだけで消費するのはやめましょう.");
+                MessageBox.Show($"目標seedが遠すぎます.\r\n{targetStep}消費をとにかくバトルだけで消費するのはやめましょう.");
                 return;
             }
-            var targetStep = d - (uint)TargetStepBox.Value;
+
             var range = (uint)RangeBox.Value;
 
             int count = 0;
             var seed = currentSeed;
             if (dataGridView1.Columns[2].Visible = RoughlyButton.Checked)
-                (count, seed) = COAdvanceCalc.AdvanceRoughly(seed, targetStep, (uint)RoughlyRangeBox.Value);
+            {
+                (count, seed) = BattleNowAdvance.AdvanceRoughly(seed, targetStep, (uint)RoughlyRangeBox.Value);
+            }
 
-            var res = COAdvanceCalc.Advance(seed, targetSeed, range);
+            var res = BattleNowAdvance.Advance(seed, targetStep - seed.GetIndex(currentSeed), range).OrderByDescending(_ => _.Seed.GetIndex(currentSeed)).ToArray();
             displayingResult = res;
 
             var items = new List<AdvanceCalcDGVItem1>();
-            for (int i = 0; i < res.Count; i++)
+            for (int i = 0; i < res.Length; i++)
             {
-                var idx = res[i].seed.GetIndex(currentSeed);
-                items.Add(new AdvanceCalcDGVItem1(res[i].seed, idx, targetStep - idx, count, res[i].code.Length, res[i].GetProcedure()));
+                var idx = res[i].Seed.GetIndex(currentSeed);
+                items.Add(new AdvanceCalcDGVItem1(res[i].Seed, idx, targetStep - idx, count, res[i].Count, string.Join("→", res[i].GetProcedure(true))));
             }
             dataGridView1.DataSource = items;
 
@@ -84,25 +86,26 @@ namespace COSearch
         }
 
 
-        private IReadOnlyList<AdvanceResult> displayingResult;
+        private IReadOnlyList<BattleNowAdvanceResult> displayingResult;
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            var rules = new RentalPartyRank[]
+            var rules = new Dictionary<string, RentalPartyRank>()
             {
-                BattleNow.SingleBattle.Ultimate,
-                BattleNow.SingleBattle.Hard,
-                BattleNow.SingleBattle.Normal,
-                BattleNow.SingleBattle.Easy,
-                BattleNow.DoubleBattle.Ultimate,
-                BattleNow.DoubleBattle.Hard,
-                BattleNow.DoubleBattle.Normal,
-                BattleNow.DoubleBattle.Easy
+                { BattleNow.SingleBattle.Ultimate.RuleName, BattleNow.SingleBattle.Ultimate },
+                { BattleNow.SingleBattle.Hard.RuleName, BattleNow.SingleBattle.Hard },
+                { BattleNow.SingleBattle.Normal.RuleName, BattleNow.SingleBattle.Normal },
+                { BattleNow.SingleBattle.Easy.RuleName, BattleNow.SingleBattle.Easy },
+
+                { BattleNow.DoubleBattle.Ultimate.RuleName, BattleNow.DoubleBattle.Ultimate },
+                { BattleNow.DoubleBattle.Hard.RuleName, BattleNow.DoubleBattle.Hard },
+                { BattleNow.DoubleBattle.Normal.RuleName, BattleNow.DoubleBattle.Normal },
+                { BattleNow.DoubleBattle.Easy.RuleName, BattleNow.DoubleBattle.Easy },
             };
 
             var currentSeed = currentSeedBox1.Seed;
-            var target = targetSeedBox1.Seed.GetIndex(currentSeed) - (uint)TargetStepBox.Value;
-            var pro = displayingResult[e.RowIndex].code.Select(_ => rules[int.Parse($"{_}")]).ToArray();
+            var target = (uint)TargetStepBox.Value;
+            var pro = displayingResult[e.RowIndex].GetProcedure();
 
             var seed = currentSeed;
             dataGridView2.Rows.Clear();
@@ -119,12 +122,14 @@ namespace COSearch
             }
             for (int i = 0; i < pro.Length; i++)
             {
-                var res = pro[i].Generate(seed);
+                var rule = rules[pro[i]];
+
+                var res = rule.Generate(seed);
                 seed = res.TailSeed;
                 var row = new DataGridViewRow();
                 row.CreateCells(dataGridView2);
                 var idx = seed.GetIndex(currentSeed);
-                row.SetValues($"{seed:X8}", idx, target - idx, pro[i].RuleName, $"{res.PlayerName} {res.PlayerTeam[0].Name}");
+                row.SetValues($"{seed:X8}", idx, target - idx, rule.RuleName, $"{res.PlayerName} {res.PlayerTeam[0].Name}");
                 dataGridView2.Rows.Add(row);
             }
             tabControl2.SelectedIndex = 1;
