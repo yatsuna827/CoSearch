@@ -19,5 +19,11 @@ namespace COSearch
             return Regex.Replace(arg1, pattern, replacement);
         }
 
+        public static void TextBox_SelectText(object sender, EventArgs e)
+            => (sender as TextBox).SelectAll();
+
+        public static void NumericUpDown_SelectValue(object sender, EventArgs e)
+            => (sender as NumericUpDown).Select(0, (sender as NumericUpDown).Text.Length);
+
     }
 }

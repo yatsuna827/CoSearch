@@ -15,6 +15,8 @@ namespace COSearch
         public DigitFixedNumericUpDown()
         {
             InitializeComponent();
+
+            this.Enter += (s, e) => Select(0, Text.Length);
         }
 
         protected override void OnPaint(PaintEventArgs pe)

@@ -41,7 +41,7 @@ namespace COSearch
             PokeType.Dragon,
             PokeType.Dark
         };
-        public PokeType SelectedType { get => 0 <= SelectedIndex && SelectedIndex < 16 ? hiddenPowerType[SelectedIndex] : PokeType.Non; }
+        public PokeType SelectedType { get => 0 <= SelectedIndex && SelectedIndex < 16 ? hiddenPowerType[SelectedIndex] : PokeType.None; }
         public void Initialize()
         {
             this.Items.Clear();

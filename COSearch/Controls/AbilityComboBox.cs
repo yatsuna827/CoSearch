@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using PokemonStandardLibrary.PokeDex.Gen3;
+using PokemonStandardLibrary.Gen3;
 
 namespace COSearch
 {

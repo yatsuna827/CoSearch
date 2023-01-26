@@ -71,5 +71,6 @@ namespace COSearch
         {
             base.OnPaint(pe);
         }
+
     }
 }

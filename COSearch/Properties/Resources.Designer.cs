@@ -59,5 +59,23 @@ namespace COSearch.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   System.IO.MemoryStream に類似した型 System.IO.UnmanagedMemoryStream のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream beep_07a {
+            get {
+                return ResourceManager.GetStream("beep_07a", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   System.IO.MemoryStream に類似した型 System.IO.UnmanagedMemoryStream のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream button_7 {
+            get {
+                return ResourceManager.GetStream("button_7", resourceCulture);
+            }
+        }
     }
 }
