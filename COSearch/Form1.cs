@@ -35,11 +35,11 @@ namespace COSearch
             var dgvPropertyInfo = typeof(DataGridView).GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
             dgvPropertyInfo.SetValue(dataGridView1, true, null);
             dgvPropertyInfo.SetValue(dataGridView2, true, null);
-            dgvPropertyInfo.SetValue(dataGridView3, true, null);
             dgvPropertyInfo.SetValue(dataGridView4, true, null);
             dgvPropertyInfo.SetValue(dataGridView5, true, null);
             dgvPropertyInfo.SetValue(dataGridView6, true, null);
-            dgvPropertyInfo.SetValue(DGV_seed, true, null);
+            _targetSearchDGV = new DataGridViewWrapper<TargetSearchBinder>(DGV_seed);
+            _listDGV = new DataGridViewWrapper<ListViewBinder>(dataGridView3);
             dgvPropertyInfo.SetValue(DGV_id, true, null);
             dgvPropertyInfo.SetValue(DGV_ID_Gap, true, null);
         }
@@ -171,18 +171,17 @@ namespace COSearch
 
         private void DataGridView3_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            var data = dataGridView3.Rows[e.RowIndex].DataBoundItem as IndividualListItem;
-
+            var data = dataGridView3.Rows[e.RowIndex].DataBoundItem as ListViewBinder;
             if (data.IsShiny)
                 e.CellStyle.BackColor = Color.Gold;
         }
 
+        private readonly DataGridViewWrapper<ListViewBinder> _listDGV;
         private void CalcListButton_Click(object sender, EventArgs e)
         {
             var currentSeed = seedBox2.Seed;
             var max = (int)maxFrameBox.Value;
             var slot = CoDarkPokemon.GetDarkPokemon(DarkPokemonBox.Text);
-            var resList = new List<IndividualListItem>();
 
             IEnumerable<uint> enumerator;
             switch (modeBox.SelectedIndex)
@@ -198,7 +197,6 @@ namespace COSearch
                     enumerator = currentSeed.EnumerateSeedAtCipherLabB2F().Take(max + 1); break;
                 case 4:
                     enumerator = currentSeed.EnumerateSeedAtOutskirtStand().Take(max + 1); break;
-                    
             }
 
             var tsv = GetValueDec(TIDBox) ^ GetValueDec(SIDBox);
@@ -225,18 +223,13 @@ namespace COSearch
 
             var criteria = AND(builder.ToArray());
 
-            foreach ((var index, var result) in enumerator.EnumerateGeneration(slot).WithIndex().Where(_ => criteria.CheckConditions(_.element.Content)))
-            {
-                var (indiv, seed) = result;
-                resList.Add(modeBox.SelectedIndex == 0 ?
-                    new IndividualListItem(index, seed, indiv, tsv) :
-                    new IndividualListItem((int)seed.GetIndex(currentSeed), (uint)index, seed, indiv, tsv));
-            }
-            
+            var temp = enumerator.EnumerateGeneration(slot).WithIndex().Where(_ => criteria.CheckConditions(_.element.Content));
+            var results = modeBox.SelectedIndex == 0 ? 
+                temp.Select((res) => new ListViewBinder((uint)res.index, res.element.HeadSeed, res.element.Content, tsv)) :
+                temp.Select((res) => new ListViewBinder((uint)res.index, res.element.HeadSeed.GetIndex(currentSeed), res.element.HeadSeed, res.element.Content, tsv));
 
-            dataGridView3.DataSource = resList;
-
-            dataGridView3.Columns[0].Visible = modeBox.SelectedIndex != 0;
+            _listDGV.SetColumnVisible("Frame", modeBox.SelectedIndex != 0);
+            _listDGV.SetData(results);
         }
 
         private void CalcBlinkButton_Click(object sender, EventArgs e)
@@ -306,10 +299,9 @@ namespace COSearch
             StatS.Maximum = maxStats[5];
         }
 
+        private readonly DataGridViewWrapper<TargetSearchBinder> _targetSearchDGV;
         private void Button7_Click(object sender, EventArgs e)
         {
-            DGV_seed.Rows.Clear();
-
             var tsv = GetValueDec(TIDBox) ^ GetValueDec(SIDBox);
 
             var builder = new List<ICriteria<GCIndividual>>();
@@ -323,7 +315,7 @@ namespace COSearch
             var criteria = AND(builder.ToArray());
 
             var slot = CoDarkPokemon.GetDarkPokemon(DarkPokemonBox_seed.SelectedIndex);
-            var rowList = new List<DataGridViewRow>();
+            var rowList = new List<TargetSearchBinder>();
             for (uint H = GetValueDec(Hmin_seed); H <= GetValueDec(Hmax_seed); H++)
                 for (uint A = GetValueDec(Amin_seed); A <= GetValueDec(Amax_seed); A++)
                     for (uint B = GetValueDec(Bmin_seed); B <= GetValueDec(Bmax_seed); B++)
@@ -331,22 +323,10 @@ namespace COSearch
                             for (uint D = GetValueDec(Dmin_seed); D <= GetValueDec(Dmax_seed); D++)
                                 for (uint S = GetValueDec(Smin_seed); S <= GetValueDec(Smax_seed); S++)
                                 {
-                                    foreach ((var seed, var individual) in slot.CalcBack(H, A, B, C, D, S, checkDeduplication.Checked).Where(_ => criteria.CheckConditions(_.Individual)))
-                                    {
-                                        individual.SetShinyType(tsv);
-
-                                        var row = new DataGridViewRow();
-                                        row.CreateCells(DGV_seed);
-                                        row.SetValues($"{seed:X8}", $"{individual.PID:X8}", individual.Nature.ToJapanese(),
-                                            individual.IVs[0], individual.IVs[1], individual.IVs[2], individual.IVs[3], individual.IVs[4], individual.IVs[5],
-                                            individual.Ability, individual.GCAbility, individual.Gender.ToSymbol(),
-                                            individual.Stats[0], individual.Stats[1], individual.Stats[2], individual.Stats[3], individual.Stats[4], individual.Stats[5]);
-                                        if (individual.Shiny.IsShiny()) row.DefaultCellStyle.BackColor = Color.Gold;
-                                        rowList.Add(row);
-                                    }
+                                    var r = slot.CalcBack(H, A, B, C, D, S, checkDeduplication.Checked).Where(_ => criteria.CheckConditions(_.Individual));
+                                    rowList.AddRange(r.Select(_ => new TargetSearchBinder(_.seed, _.Individual, tsv)));
                                 }
-            foreach(var row in rowList)
-                DGV_seed.Rows.Add(row);
+            _targetSearchDGV.SetData(rowList);
         }
 
         private void DarkPokemonBox_seed_SelectedIndexChanged(object sender, EventArgs e)

@@ -113,24 +113,6 @@
             this.Amax_seed = new System.Windows.Forms.NumericUpDown();
             this.Smin_seed = new System.Windows.Forms.NumericUpDown();
             this.DGV_seed = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DarkPokemonBox_seed = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.outputPage = new System.Windows.Forms.TabPage();
@@ -176,27 +158,6 @@
             this.Amax = new System.Windows.Forms.NumericUpDown();
             this.Smin = new System.Windows.Forms.NumericUpDown();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.Frame = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.indexDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nature = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVsH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVsA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVsB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVsC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVsD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IVsS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ability = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GCAbility = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatsH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatsA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatsB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatsC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatsD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatsS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.individualListItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DarkPokemonBox = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.maxFrameBox = new System.Windows.Forms.NumericUpDown();
@@ -483,7 +444,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Amax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Smin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.individualListItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFrameBox)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -1486,25 +1446,6 @@
             this.DGV_seed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DGV_seed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV_seed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column3,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26});
             this.DGV_seed.Location = new System.Drawing.Point(196, 13);
             this.DGV_seed.Name = "DGV_seed";
             this.DGV_seed.ReadOnly = true;
@@ -1512,147 +1453,6 @@
             this.DGV_seed.RowTemplate.Height = 21;
             this.DGV_seed.Size = new System.Drawing.Size(558, 468);
             this.DGV_seed.TabIndex = 23;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "seed";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 88;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "PID";
-            this.dataGridViewTextBoxColumn10.HeaderText = "性格値";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 88;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Nature";
-            this.dataGridViewTextBoxColumn11.HeaderText = "性格";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 64;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "IVsH";
-            this.dataGridViewTextBoxColumn12.HeaderText = "H";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "IVsA";
-            this.dataGridViewTextBoxColumn13.HeaderText = "A";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "IVsB";
-            this.dataGridViewTextBoxColumn14.HeaderText = "B";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "IVsC";
-            this.dataGridViewTextBoxColumn15.HeaderText = "C";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "IVsD";
-            this.dataGridViewTextBoxColumn16.HeaderText = "D";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "IVsS";
-            this.dataGridViewTextBoxColumn17.HeaderText = "S";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Ability";
-            this.dataGridViewTextBoxColumn18.HeaderText = "特性";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "GCAbility";
-            this.dataGridViewTextBoxColumn19.HeaderText = "XD特性";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Gender";
-            this.dataGridViewTextBoxColumn20.HeaderText = "性別";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Width = 64;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "StatsH";
-            this.dataGridViewTextBoxColumn21.HeaderText = "H";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            this.dataGridViewTextBoxColumn21.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "StatsA";
-            this.dataGridViewTextBoxColumn22.HeaderText = "A";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            this.dataGridViewTextBoxColumn22.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "StatsB";
-            this.dataGridViewTextBoxColumn23.HeaderText = "B";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            this.dataGridViewTextBoxColumn23.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "StatsC";
-            this.dataGridViewTextBoxColumn24.HeaderText = "C";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            this.dataGridViewTextBoxColumn24.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "StatsD";
-            this.dataGridViewTextBoxColumn25.HeaderText = "D";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.ReadOnly = true;
-            this.dataGridViewTextBoxColumn25.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.DataPropertyName = "StatsS";
-            this.dataGridViewTextBoxColumn26.HeaderText = "S";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            this.dataGridViewTextBoxColumn26.Width = 40;
             // 
             // DarkPokemonBox_seed
             // 
@@ -2273,30 +2073,7 @@
             this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView3.AutoGenerateColumns = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Frame,
-            this.indexDataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn6,
-            this.PID,
-            this.Nature,
-            this.IVsH,
-            this.IVsA,
-            this.IVsB,
-            this.IVsC,
-            this.IVsD,
-            this.IVsS,
-            this.Ability,
-            this.GCAbility,
-            this.GenderColumn,
-            this.StatsH,
-            this.StatsA,
-            this.StatsB,
-            this.StatsC,
-            this.StatsD,
-            this.StatsS});
-            this.dataGridView3.DataSource = this.individualListItemBindingSource;
             this.dataGridView3.Location = new System.Drawing.Point(196, 13);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.ReadOnly = true;
@@ -2305,169 +2082,6 @@
             this.dataGridView3.Size = new System.Drawing.Size(557, 468);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView3_CellFormatting);
-            // 
-            // Frame
-            // 
-            this.Frame.DataPropertyName = "Frame";
-            this.Frame.HeaderText = "F";
-            this.Frame.Name = "Frame";
-            this.Frame.ReadOnly = true;
-            this.Frame.Visible = false;
-            this.Frame.Width = 64;
-            // 
-            // indexDataGridViewTextBoxColumn1
-            // 
-            this.indexDataGridViewTextBoxColumn1.DataPropertyName = "Index";
-            this.indexDataGridViewTextBoxColumn1.HeaderText = "消費数";
-            this.indexDataGridViewTextBoxColumn1.Name = "indexDataGridViewTextBoxColumn1";
-            this.indexDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.indexDataGridViewTextBoxColumn1.Width = 64;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Seed";
-            this.dataGridViewTextBoxColumn6.HeaderText = "seed";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 88;
-            // 
-            // PID
-            // 
-            this.PID.DataPropertyName = "PID";
-            this.PID.HeaderText = "性格値";
-            this.PID.Name = "PID";
-            this.PID.ReadOnly = true;
-            this.PID.Width = 88;
-            // 
-            // Nature
-            // 
-            this.Nature.DataPropertyName = "Nature";
-            this.Nature.HeaderText = "性格";
-            this.Nature.Name = "Nature";
-            this.Nature.ReadOnly = true;
-            this.Nature.Width = 64;
-            // 
-            // IVsH
-            // 
-            this.IVsH.DataPropertyName = "IVsH";
-            this.IVsH.HeaderText = "H";
-            this.IVsH.Name = "IVsH";
-            this.IVsH.ReadOnly = true;
-            this.IVsH.Width = 40;
-            // 
-            // IVsA
-            // 
-            this.IVsA.DataPropertyName = "IVsA";
-            this.IVsA.HeaderText = "A";
-            this.IVsA.Name = "IVsA";
-            this.IVsA.ReadOnly = true;
-            this.IVsA.Width = 40;
-            // 
-            // IVsB
-            // 
-            this.IVsB.DataPropertyName = "IVsB";
-            this.IVsB.HeaderText = "B";
-            this.IVsB.Name = "IVsB";
-            this.IVsB.ReadOnly = true;
-            this.IVsB.Width = 40;
-            // 
-            // IVsC
-            // 
-            this.IVsC.DataPropertyName = "IVsC";
-            this.IVsC.HeaderText = "C";
-            this.IVsC.Name = "IVsC";
-            this.IVsC.ReadOnly = true;
-            this.IVsC.Width = 40;
-            // 
-            // IVsD
-            // 
-            this.IVsD.DataPropertyName = "IVsD";
-            this.IVsD.HeaderText = "D";
-            this.IVsD.Name = "IVsD";
-            this.IVsD.ReadOnly = true;
-            this.IVsD.Width = 40;
-            // 
-            // IVsS
-            // 
-            this.IVsS.DataPropertyName = "IVsS";
-            this.IVsS.HeaderText = "S";
-            this.IVsS.Name = "IVsS";
-            this.IVsS.ReadOnly = true;
-            this.IVsS.Width = 40;
-            // 
-            // Ability
-            // 
-            this.Ability.DataPropertyName = "Ability";
-            this.Ability.HeaderText = "特性";
-            this.Ability.Name = "Ability";
-            this.Ability.ReadOnly = true;
-            // 
-            // GCAbility
-            // 
-            this.GCAbility.DataPropertyName = "GCAbility";
-            this.GCAbility.HeaderText = "XD特性";
-            this.GCAbility.Name = "GCAbility";
-            this.GCAbility.ReadOnly = true;
-            // 
-            // GenderColumn
-            // 
-            this.GenderColumn.DataPropertyName = "Gender";
-            this.GenderColumn.HeaderText = "性別";
-            this.GenderColumn.Name = "GenderColumn";
-            this.GenderColumn.ReadOnly = true;
-            this.GenderColumn.Width = 64;
-            // 
-            // StatsH
-            // 
-            this.StatsH.DataPropertyName = "StatsH";
-            this.StatsH.HeaderText = "H";
-            this.StatsH.Name = "StatsH";
-            this.StatsH.ReadOnly = true;
-            this.StatsH.Width = 40;
-            // 
-            // StatsA
-            // 
-            this.StatsA.DataPropertyName = "StatsA";
-            this.StatsA.HeaderText = "A";
-            this.StatsA.Name = "StatsA";
-            this.StatsA.ReadOnly = true;
-            this.StatsA.Width = 40;
-            // 
-            // StatsB
-            // 
-            this.StatsB.DataPropertyName = "StatsB";
-            this.StatsB.HeaderText = "B";
-            this.StatsB.Name = "StatsB";
-            this.StatsB.ReadOnly = true;
-            this.StatsB.Width = 40;
-            // 
-            // StatsC
-            // 
-            this.StatsC.DataPropertyName = "StatsC";
-            this.StatsC.HeaderText = "C";
-            this.StatsC.Name = "StatsC";
-            this.StatsC.ReadOnly = true;
-            this.StatsC.Width = 40;
-            // 
-            // StatsD
-            // 
-            this.StatsD.DataPropertyName = "StatsD";
-            this.StatsD.HeaderText = "D";
-            this.StatsD.Name = "StatsD";
-            this.StatsD.ReadOnly = true;
-            this.StatsD.Width = 40;
-            // 
-            // StatsS
-            // 
-            this.StatsS.DataPropertyName = "StatsS";
-            this.StatsS.HeaderText = "S";
-            this.StatsS.Name = "StatsS";
-            this.StatsS.ReadOnly = true;
-            this.StatsS.Width = 40;
-            // 
-            // individualListItemBindingSource
-            // 
-            this.individualListItemBindingSource.DataSource = typeof(COSearch.IndividualListItem);
             // 
             // DarkPokemonBox
             // 
@@ -5406,7 +5020,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Amax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Smin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.individualListItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFrameBox)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -5514,7 +5127,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox DarkPokemonBox;
-        private System.Windows.Forms.BindingSource individualListItemBindingSource;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn indexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn remainingStepDataGridViewTextBoxColumn;
@@ -5615,24 +5227,6 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private System.Windows.Forms.CheckBox checkDeduplication;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
@@ -5657,26 +5251,6 @@
         private GenderComboBox genderBox2;
         private AbilityComboBox abilityBox2;
         private NatureComboBox natureBox2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Frame;
-        private System.Windows.Forms.DataGridViewTextBoxColumn indexDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nature;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVsH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVsA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVsB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVsC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVsD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IVsS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ability;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GCAbility;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GenderColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatsH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatsA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatsB;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatsC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatsD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StatsS;
         private System.Windows.Forms.CheckBox checkHiddenPowerType1;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.NumericUpDown hiddenPowerPowerBox1;
