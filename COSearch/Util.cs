@@ -25,5 +25,6 @@ namespace COSearch
         public static void NumericUpDown_SelectValue(object sender, EventArgs e)
             => (sender as NumericUpDown).Select(0, (sender as NumericUpDown).Text.Length);
 
+        public static uint TickToFrame(this long tick, double frequency) => (uint)(tick / 10_000_000 * frequency);
     }
 }
