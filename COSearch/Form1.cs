@@ -20,6 +20,7 @@ using PokemonCoRNGLibrary.StarterCriteriaLanguage;
 
 using static COSearch.Util;
 using static PokemonPRNG.LCG32.Criteria;
+using PokemonCoRNGLibrary.IrregularAdvance;
 
 namespace COSearch
 {
@@ -183,20 +184,35 @@ namespace COSearch
             var max = (int)maxFrameBox.Value;
             var slot = CoDarkPokemon.GetDarkPokemon(DarkPokemonBox.Text);
 
-            IEnumerable<uint> enumerator;
+            ISeedEnumeratorHandler handler = null;
             switch (modeBox.SelectedIndex)
             {
                 case 0:
                 default:
-                    enumerator = currentSeed.EnumerateSeed().Take(max + 1); break;
+                    break;
                 case 1:
-                    enumerator = currentSeed.EnumerateSeedAtPyriteCave().Take(max + 1); break;
+                    handler = new PyriteCave(); 
+                    break;
                 case 2:
-                    enumerator = currentSeed.EnumerateSeedAtCipherLabB1F().Take(max + 1); break;
+                    handler = new CipherLabB1F(); 
+                    break;
                 case 3:
-                    enumerator = currentSeed.EnumerateSeedAtCipherLabB2F().Take(max + 1); break;
+                    handler = new CipherLabB2F(); 
+                    break;
                 case 4:
-                    enumerator = currentSeed.EnumerateSeedAtOutskirtStand().Take(max + 1); break;
+                    handler = new OutskirtStand(); 
+                    break;
+                case 5:
+                    handler = new BlinkObjectEnumeratorHanlder(
+                        new BlinkObject(10, 10), 
+                        new BlinkObject(10, 10), 
+                        new BlinkObject((int)numericUpDown2.Value, 10)); 
+                    break;
+                case 6:
+                    handler = new BlinkObjectEnumeratorHanlder(
+                        new BlinkObject(10, 10), 
+                        new BlinkObject((int)numericUpDown2.Value, 10)); 
+                    break;
             }
 
             var tsv = GetValueDec(TIDBox) ^ GetValueDec(SIDBox);
@@ -223,7 +239,10 @@ namespace COSearch
 
             var criteria = AND(builder.ToArray());
 
-            var temp = enumerator.EnumerateGeneration(slot).WithIndex().Where(_ => criteria.CheckConditions(_.element.Content));
+            var temp = currentSeed.EnumerateSeed(handler).Take(max + 1)
+                .EnumerateGeneration(slot).WithIndex()
+                .Where(_ => criteria.CheckConditions(_.element.Content));
+
             var results = modeBox.SelectedIndex == 0 ? 
                 temp.Select((res) => new ListViewBinder((uint)res.index, res.element.HeadSeed, res.element.Content, tsv)) :
                 temp.Select((res) => new ListViewBinder((uint)res.index, res.element.HeadSeed.GetIndex(currentSeed), res.element.HeadSeed, res.element.Content, tsv));
@@ -357,7 +376,7 @@ namespace COSearch
             dataGridView5.Rows.Clear();
             foreach (var (seed, interval, frame, lcgIndex) in current.EnumerateBlinkingSeed(cool).TakeWhile(_=>_.seed.GetIndex(current) <= targetIndex))
             {
-                var snatchStream = seed.EnumerateSnatchListAdvance().TakeWhile((_) => _.GetIndex(current) <= targetIndex).ToArray();
+                var snatchStream = seed.EnumerateSeed(new OpenSnatchList()).TakeWhile((_) => _.GetIndex(current) <= targetIndex).ToArray();
                 var snatchCount = snatchStream.Length - 1;
                 var terminal = snatchStream.Last();
                 var snatchCell = terminal == target ? $"{snatchCount}回" : $"{snatchCount}回+{target.GetIndex(terminal)}[F]";
@@ -653,7 +672,7 @@ namespace COSearch
             DGV_ID_Gap.Rows.Clear();
 
             var gen = new CoStarterGenerator();
-            var rows = startingSeed.EnumerateSeedAtNamingScreen().EnumerateGeneration(gen).WithIndex()
+            var rows = startingSeed.EnumerateSeed(new NamingScreen()).EnumerateGeneration(gen).WithIndex()
                 .Skip(l)
                 .Take(r - l + 1)
                 .Where(_ => _.element.TID == tid)
@@ -717,7 +736,7 @@ namespace COSearch
 
             dataGridView6.Rows.Clear();
             var list = new List<DataGridViewRow>();
-            foreach ((var index, var res) in seed.EnumerateSeedAtNamingScreen().Take(max).EnumerateGeneration(gen)
+            foreach ((var index, var res) in seed.EnumerateSeed(new NamingScreen()).Take(max).EnumerateGeneration(gen)
                 .WithIndex().Where(_ => criteria.CheckConditions(_.element)))
             {
                 var head = res.HeadSeed;
@@ -752,6 +771,14 @@ namespace COSearch
 
             editorForm.Show();
             button5.Enabled = true;
+        }
+
+        private BlinkWatcher _watcherForm;
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (_watcherForm == null || _watcherForm.IsDisposed) 
+                _watcherForm = new BlinkWatcher((int)numericUpDown3.Value, checkBox2.Checked);
+            _watcherForm.Show();
         }
     }
 }

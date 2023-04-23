@@ -116,6 +116,9 @@
             this.DarkPokemonBox_seed = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.outputPage = new System.Windows.Forms.TabPage();
+            this.label87 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label88 = new System.Windows.Forms.Label();
             this.seedBox2 = new COSearch.SeedBox();
             this.label45 = new System.Windows.Forms.Label();
             this.modeBox = new System.Windows.Forms.ComboBox();
@@ -164,6 +167,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
             this.label69 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.numericUpDown20 = new System.Windows.Forms.NumericUpDown();
@@ -395,6 +399,10 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.label89 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label90 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.advanceCalcPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -424,6 +432,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Smin_seed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_seed)).BeginInit();
             this.outputPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StatD)).BeginInit();
@@ -500,6 +509,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SIDBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TIDBox)).BeginInit();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1476,6 +1486,9 @@
             // 
             // outputPage
             // 
+            this.outputPage.Controls.Add(this.label87);
+            this.outputPage.Controls.Add(this.numericUpDown2);
+            this.outputPage.Controls.Add(this.label88);
             this.outputPage.Controls.Add(this.seedBox2);
             this.outputPage.Controls.Add(this.label45);
             this.outputPage.Controls.Add(this.modeBox);
@@ -1493,6 +1506,46 @@
             this.outputPage.TabIndex = 1;
             this.outputPage.Text = "リスト表示";
             this.outputPage.UseVisualStyleBackColor = true;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(55, 120);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(26, 12);
+            this.label87.TabIndex = 340;
+            this.label87.Text = "瞬き";
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(90, 118);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(54, 19);
+            this.numericUpDown2.TabIndex = 341;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(152, 120);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(12, 12);
+            this.label88.TabIndex = 342;
+            this.label88.Text = "F";
             // 
             // seedBox2
             // 
@@ -1523,7 +1576,9 @@
             "パイラの洞窟",
             "ダークポケモン研究所B1F",
             "ダークポケモン研究所B2F",
-            "町外れのスタンド"});
+            "町外れのスタンド",
+            "連続戦闘(敵の瞬きあり)",
+            "連続戦闘(敵の瞬きなし)"});
             this.modeBox.Location = new System.Drawing.Point(41, 92);
             this.modeBox.Name = "modeBox";
             this.modeBox.Size = new System.Drawing.Size(149, 20);
@@ -1569,9 +1624,9 @@
             this.groupBox3.Controls.Add(this.Dmin);
             this.groupBox3.Controls.Add(this.Amax);
             this.groupBox3.Controls.Add(this.Smin);
-            this.groupBox3.Location = new System.Drawing.Point(6, 146);
+            this.groupBox3.Location = new System.Drawing.Point(6, 182);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(184, 335);
+            this.groupBox3.Size = new System.Drawing.Size(184, 299);
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "フィルタ";
@@ -1580,7 +1635,7 @@
             // 
             this.abilityBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.abilityBox1.FormattingEnabled = true;
-            this.abilityBox1.Location = new System.Drawing.Point(33, 49);
+            this.abilityBox1.Location = new System.Drawing.Point(32, 51);
             this.abilityBox1.Name = "abilityBox1";
             this.abilityBox1.Size = new System.Drawing.Size(121, 20);
             this.abilityBox1.TabIndex = 341;
@@ -1589,7 +1644,7 @@
             // 
             this.genderBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderBox1.FormattingEnabled = true;
-            this.genderBox1.Location = new System.Drawing.Point(33, 75);
+            this.genderBox1.Location = new System.Drawing.Point(32, 77);
             this.genderBox1.Name = "genderBox1";
             this.genderBox1.Size = new System.Drawing.Size(52, 20);
             this.genderBox1.TabIndex = 340;
@@ -1598,7 +1653,7 @@
             // 
             this.natureBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.natureBox1.FormattingEnabled = true;
-            this.natureBox1.Location = new System.Drawing.Point(33, 23);
+            this.natureBox1.Location = new System.Drawing.Point(32, 25);
             this.natureBox1.Name = "natureBox1";
             this.natureBox1.Size = new System.Drawing.Size(121, 20);
             this.natureBox1.TabIndex = 339;
@@ -1606,7 +1661,7 @@
             // StatS
             // 
             this.StatS.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatS.Location = new System.Drawing.Point(50, 300);
+            this.StatS.Location = new System.Drawing.Point(49, 265);
             this.StatS.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1620,7 +1675,7 @@
             // StatD
             // 
             this.StatD.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatD.Location = new System.Drawing.Point(50, 272);
+            this.StatD.Location = new System.Drawing.Point(49, 237);
             this.StatD.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1634,7 +1689,7 @@
             // StatC
             // 
             this.StatC.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatC.Location = new System.Drawing.Point(50, 244);
+            this.StatC.Location = new System.Drawing.Point(49, 209);
             this.StatC.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1648,7 +1703,7 @@
             // StatB
             // 
             this.StatB.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatB.Location = new System.Drawing.Point(50, 216);
+            this.StatB.Location = new System.Drawing.Point(49, 181);
             this.StatB.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1662,7 +1717,7 @@
             // StatA
             // 
             this.StatA.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatA.Location = new System.Drawing.Point(50, 188);
+            this.StatA.Location = new System.Drawing.Point(49, 153);
             this.StatA.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1676,7 +1731,7 @@
             // StatH
             // 
             this.StatH.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StatH.Location = new System.Drawing.Point(50, 160);
+            this.StatH.Location = new System.Drawing.Point(49, 125);
             this.StatH.Maximum = new decimal(new int[] {
             999,
             0,
@@ -1690,7 +1745,7 @@
             // OnlyShiny_list
             // 
             this.OnlyShiny_list.AutoSize = true;
-            this.OnlyShiny_list.Location = new System.Drawing.Point(12, 101);
+            this.OnlyShiny_list.Location = new System.Drawing.Point(11, 103);
             this.OnlyShiny_list.Name = "OnlyShiny_list";
             this.OnlyShiny_list.Size = new System.Drawing.Size(79, 16);
             this.OnlyShiny_list.TabIndex = 23;
@@ -1700,7 +1755,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(102, 303);
+            this.label22.Location = new System.Drawing.Point(101, 268);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(17, 12);
             this.label22.TabIndex = 328;
@@ -1709,7 +1764,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(102, 275);
+            this.label23.Location = new System.Drawing.Point(101, 240);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(17, 12);
             this.label23.TabIndex = 327;
@@ -1718,7 +1773,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(102, 247);
+            this.label24.Location = new System.Drawing.Point(101, 212);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(17, 12);
             this.label24.TabIndex = 326;
@@ -1727,7 +1782,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(102, 219);
+            this.label25.Location = new System.Drawing.Point(101, 184);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(17, 12);
             this.label25.TabIndex = 325;
@@ -1736,7 +1791,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(102, 191);
+            this.label26.Location = new System.Drawing.Point(101, 156);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(17, 12);
             this.label26.TabIndex = 324;
@@ -1745,7 +1800,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(102, 163);
+            this.label27.Location = new System.Drawing.Point(101, 128);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(17, 12);
             this.label27.TabIndex = 14;
@@ -1754,7 +1809,7 @@
             // checkGender
             // 
             this.checkGender.AutoSize = true;
-            this.checkGender.Location = new System.Drawing.Point(12, 78);
+            this.checkGender.Location = new System.Drawing.Point(11, 80);
             this.checkGender.Name = "checkGender";
             this.checkGender.Size = new System.Drawing.Size(15, 14);
             this.checkGender.TabIndex = 316;
@@ -1764,7 +1819,7 @@
             // checkS
             // 
             this.checkS.AutoSize = true;
-            this.checkS.Location = new System.Drawing.Point(12, 302);
+            this.checkS.Location = new System.Drawing.Point(11, 267);
             this.checkS.Name = "checkS";
             this.checkS.Size = new System.Drawing.Size(31, 16);
             this.checkS.TabIndex = 323;
@@ -1775,7 +1830,7 @@
             // checkAbility
             // 
             this.checkAbility.AutoSize = true;
-            this.checkAbility.Location = new System.Drawing.Point(12, 52);
+            this.checkAbility.Location = new System.Drawing.Point(11, 54);
             this.checkAbility.Name = "checkAbility";
             this.checkAbility.Size = new System.Drawing.Size(15, 14);
             this.checkAbility.TabIndex = 315;
@@ -1785,7 +1840,7 @@
             // checkNature
             // 
             this.checkNature.AutoSize = true;
-            this.checkNature.Location = new System.Drawing.Point(12, 27);
+            this.checkNature.Location = new System.Drawing.Point(11, 29);
             this.checkNature.Name = "checkNature";
             this.checkNature.Size = new System.Drawing.Size(15, 14);
             this.checkNature.TabIndex = 314;
@@ -1795,7 +1850,7 @@
             // checkD
             // 
             this.checkD.AutoSize = true;
-            this.checkD.Location = new System.Drawing.Point(12, 274);
+            this.checkD.Location = new System.Drawing.Point(11, 239);
             this.checkD.Name = "checkD";
             this.checkD.Size = new System.Drawing.Size(32, 16);
             this.checkD.TabIndex = 322;
@@ -1806,7 +1861,7 @@
             // checkC
             // 
             this.checkC.AutoSize = true;
-            this.checkC.Location = new System.Drawing.Point(12, 246);
+            this.checkC.Location = new System.Drawing.Point(11, 211);
             this.checkC.Name = "checkC";
             this.checkC.Size = new System.Drawing.Size(32, 16);
             this.checkC.TabIndex = 321;
@@ -1817,7 +1872,7 @@
             // Hmin
             // 
             this.Hmin.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hmin.Location = new System.Drawing.Point(51, 160);
+            this.Hmin.Location = new System.Drawing.Point(50, 125);
             this.Hmin.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1835,7 +1890,7 @@
             // checkB
             // 
             this.checkB.AutoSize = true;
-            this.checkB.Location = new System.Drawing.Point(12, 218);
+            this.checkB.Location = new System.Drawing.Point(11, 183);
             this.checkB.Name = "checkB";
             this.checkB.Size = new System.Drawing.Size(32, 16);
             this.checkB.TabIndex = 320;
@@ -1846,7 +1901,7 @@
             // Amin
             // 
             this.Amin.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Amin.Location = new System.Drawing.Point(51, 188);
+            this.Amin.Location = new System.Drawing.Point(50, 153);
             this.Amin.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1864,7 +1919,7 @@
             // Smax
             // 
             this.Smax.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Smax.Location = new System.Drawing.Point(125, 300);
+            this.Smax.Location = new System.Drawing.Point(124, 265);
             this.Smax.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1882,7 +1937,7 @@
             // checkA
             // 
             this.checkA.AutoSize = true;
-            this.checkA.Location = new System.Drawing.Point(12, 190);
+            this.checkA.Location = new System.Drawing.Point(11, 155);
             this.checkA.Name = "checkA";
             this.checkA.Size = new System.Drawing.Size(32, 16);
             this.checkA.TabIndex = 319;
@@ -1893,7 +1948,7 @@
             // Cmax
             // 
             this.Cmax.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cmax.Location = new System.Drawing.Point(125, 244);
+            this.Cmax.Location = new System.Drawing.Point(124, 209);
             this.Cmax.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1911,7 +1966,7 @@
             // Bmin
             // 
             this.Bmin.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bmin.Location = new System.Drawing.Point(51, 216);
+            this.Bmin.Location = new System.Drawing.Point(50, 181);
             this.Bmin.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1929,7 +1984,7 @@
             // Dmax
             // 
             this.Dmax.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dmax.Location = new System.Drawing.Point(125, 272);
+            this.Dmax.Location = new System.Drawing.Point(124, 237);
             this.Dmax.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1947,7 +2002,7 @@
             // checkH
             // 
             this.checkH.AutoSize = true;
-            this.checkH.Location = new System.Drawing.Point(12, 162);
+            this.checkH.Location = new System.Drawing.Point(11, 127);
             this.checkH.Name = "checkH";
             this.checkH.Size = new System.Drawing.Size(32, 16);
             this.checkH.TabIndex = 318;
@@ -1958,7 +2013,7 @@
             // Bmax
             // 
             this.Bmax.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bmax.Location = new System.Drawing.Point(125, 216);
+            this.Bmax.Location = new System.Drawing.Point(124, 181);
             this.Bmax.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1976,7 +2031,7 @@
             // Cmin
             // 
             this.Cmin.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cmin.Location = new System.Drawing.Point(51, 244);
+            this.Cmin.Location = new System.Drawing.Point(50, 209);
             this.Cmin.Maximum = new decimal(new int[] {
             31,
             0,
@@ -1994,7 +2049,7 @@
             // Hmax
             // 
             this.Hmax.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hmax.Location = new System.Drawing.Point(125, 160);
+            this.Hmax.Location = new System.Drawing.Point(124, 125);
             this.Hmax.Maximum = new decimal(new int[] {
             31,
             0,
@@ -2012,7 +2067,7 @@
             // Dmin
             // 
             this.Dmin.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dmin.Location = new System.Drawing.Point(51, 272);
+            this.Dmin.Location = new System.Drawing.Point(50, 237);
             this.Dmin.Maximum = new decimal(new int[] {
             31,
             0,
@@ -2030,7 +2085,7 @@
             // Amax
             // 
             this.Amax.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Amax.Location = new System.Drawing.Point(125, 188);
+            this.Amax.Location = new System.Drawing.Point(124, 153);
             this.Amax.Maximum = new decimal(new int[] {
             31,
             0,
@@ -2048,7 +2103,7 @@
             // Smin
             // 
             this.Smin.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Smin.Location = new System.Drawing.Point(51, 300);
+            this.Smin.Location = new System.Drawing.Point(50, 265);
             this.Smin.Maximum = new decimal(new int[] {
             31,
             0,
@@ -2095,7 +2150,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(115, 118);
+            this.button2.Location = new System.Drawing.Point(115, 153);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 18;
@@ -2141,6 +2196,11 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkBox2);
+            this.tabPage1.Controls.Add(this.label89);
+            this.tabPage1.Controls.Add(this.numericUpDown3);
+            this.tabPage1.Controls.Add(this.label90);
+            this.tabPage1.Controls.Add(this.button11);
             this.tabPage1.Controls.Add(this.label69);
             this.tabPage1.Controls.Add(this.groupBox8);
             this.tabPage1.Controls.Add(this.dataGridView5);
@@ -2159,6 +2219,16 @@
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "瞬き計算";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(15, 438);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(107, 46);
+            this.button11.TabIndex = 64;
+            this.button11.Text = "連続戦闘";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // label69
             // 
@@ -4952,6 +5022,56 @@
             this.comboBox5.TabIndex = 333;
             this.comboBox5.TabStop = false;
             // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(13, 393);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(26, 12);
+            this.label89.TabIndex = 65;
+            this.label89.Text = "瞬き";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(48, 391);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(54, 19);
+            this.numericUpDown3.TabIndex = 66;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(110, 393);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(12, 12);
+            this.label90.TabIndex = 67;
+            this.label90.Text = "F";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(15, 416);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(124, 16);
+            this.checkBox2.TabIndex = 68;
+            this.checkBox2.Text = "敵トレーナー瞬き有り";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4999,6 +5119,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_seed)).EndInit();
             this.outputPage.ResumeLayout(false);
             this.outputPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatS)).EndInit();
@@ -5089,6 +5210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TIDBox)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5452,6 +5574,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn85;
         private System.Windows.Forms.Label responce1;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.Label label90;
     }
 }
 
