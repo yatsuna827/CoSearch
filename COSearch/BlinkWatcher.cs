@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 using PokemonPRNG.LCG32.GCLCG;
 using PokemonCoRNGLibrary;
-using PokemonCoRNGLibrary.IrregularAdvance;
+using PokemonCoRNGLibrary.AdvanceSource;
 
 namespace COSearch
 {
@@ -68,7 +68,8 @@ namespace COSearch
                 {
                     var seed = seedBox1.Seed;
 
-                    var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, _blanks.ToArray(), false, 10, 4);
+                    var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(4, 10), false, 10);
+                    var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, _blanks.ToArray(), handler, 10);
                     textBox1.Text = string.Join(Environment.NewLine, result.Select(_ => $"{_.GetIndex(seed)}[F] {_:X8}"));
 
                     if (result.Count() == 1)
@@ -137,7 +138,8 @@ namespace COSearch
 
             var seed = seedBox1.Seed;
 
-            var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, new int[] { 853, 854, 443, 650, 609, 806, 650, 387, 837, 600 }, false, 10, 4);
+            var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(4, 10), false, 10);
+            var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, new int[] { 853, 854, 443, 650, 609, 806, 650, 387, 837, 600 }, handler, 10);
             textBox1.Text = string.Join(Environment.NewLine, result.Select(_ => $"{_.GetIndex(seed)}[F] {_:X8}"));
 
             if (result.Count() == 1)

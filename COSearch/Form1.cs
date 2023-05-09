@@ -20,7 +20,8 @@ using PokemonCoRNGLibrary.StarterCriteriaLanguage;
 
 using static COSearch.Util;
 using static PokemonPRNG.LCG32.Criteria;
-using PokemonCoRNGLibrary.IrregularAdvance;
+using PokemonCoRNGLibrary.AdvanceSource;
+using PokemonCoRNGLibrary.ProvidedData;
 
 namespace COSearch
 {
@@ -50,7 +51,7 @@ namespace COSearch
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var dpName = CoDarkPokemon.GetAllCoDarkPokemons().Select(_ => _.slot.Pokemon.Name).ToArray();
+            var dpName = ProvidedCoDarkPokemonData.GetAll().Select(_ => _.Slot.Species.Name).ToArray();
             DarkPokemonBox.Items.AddRange(dpName);
             DarkPokemonBox_seed.Items.AddRange(dpName);
 
@@ -63,7 +64,6 @@ namespace COSearch
             id_HiddePowerType.Initialize();
             id_CheckHPType.Checked = false;
 
-            var slot = CoDarkPokemon.GetDarkPokemon("マクノシタ");
             DarkPokemonBox.SelectedIndex = 0;
             DarkPokemonBox_seed.SelectedIndex = 0;
             modeBox.SelectedIndex = 0;
@@ -113,7 +113,7 @@ namespace COSearch
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            var rules = new Dictionary<string, RentalPartyRank>()
+            var rules = new Dictionary<string, RentalTeamRank>()
             {
                 { BattleNow.SingleBattle.Ultimate.RuleName, BattleNow.SingleBattle.Ultimate },
                 { BattleNow.SingleBattle.Hard.RuleName, BattleNow.SingleBattle.Hard },
@@ -182,44 +182,45 @@ namespace COSearch
         {
             var currentSeed = seedBox2.Seed;
             var max = (int)maxFrameBox.Value;
-            var slot = CoDarkPokemon.GetDarkPokemon(DarkPokemonBox.Text);
+            var slot = ProvidedCoDarkPokemonData.Get(DarkPokemonBox.Text).GetGenerator();
 
-            ISeedEnumeratorHandler handler = null;
-            switch (modeBox.SelectedIndex)
+            IEnumerable<uint> GetEnumerator()
             {
-                case 0:
-                default:
-                    break;
-                case 1:
-                    handler = new PyriteCave(); 
-                    break;
-                case 2:
-                    handler = new CipherLabB1F(); 
-                    break;
-                case 3:
-                    handler = new CipherLabB2F(); 
-                    break;
-                case 4:
-                    handler = new OutskirtStand(); 
-                    break;
-                case 5:
-                    handler = new BlinkObjectEnumeratorHanlder(
-                        new BlinkObject(10, 10), 
-                        new BlinkObject(10, 10), 
-                        new BlinkObject((int)numericUpDown2.Value, 10)); 
-                    break;
-                case 6:
-                    handler = new BlinkObjectEnumeratorHanlder(
-                        new BlinkObject(10, 10), 
-                        new BlinkObject((int)numericUpDown2.Value, 10)); 
-                    break;
+                switch (modeBox.SelectedIndex)
+                {
+                    case 0:
+                    default:
+                        return currentSeed.EnumerateSeed();
+                    case 1:
+                        return currentSeed.EnumerateSeed(new PyriteCave());
+                    case 2:
+                        return currentSeed.EnumerateSeed(new CipherLabB2F());
+                    case 3:
+                        return currentSeed.EnumerateSeed(new CipherLabB3F());
+                    case 4:
+                        return currentSeed.EnumerateSeed(new OutskirtStand());
+                    case 5:
+                        return currentSeed.EnumerateSeed(
+                            new BlinkObjectEnumeratorHanlder(
+                                new BlinkObject(10, 10), 
+                                new BlinkObject(10, 10), 
+                            new BlinkObject((int)numericUpDown2.Value, 10))
+                        );
+                    case 6:
+                        return currentSeed.EnumerateSeed(
+                            new BlinkObjectEnumeratorHanlder(
+                                new BlinkObject(10, 10), 
+                                new BlinkObject((int)numericUpDown2.Value, 10))
+                        );
+                }
             }
+            var seedEnumerator = GetEnumerator();
 
             var tsv = GetValueDec(TIDBox) ^ GetValueDec(SIDBox);
 
             var builder = new List<ICriteria<GCIndividual>>();
             if (checkAbility.Checked) 
-                builder.Add(new AbilityCriteria(abilityBox1.Text));
+                builder.Add(new GCAbilityCriteria(abilityBox1.Text));
             if (checkGender.Checked && genderBox1.SelectedGender != Gender.Genderless) 
                 builder.Add(new GenderCriteria(genderBox1.SelectedGender));
             if (checkNature.Checked) 
@@ -239,13 +240,13 @@ namespace COSearch
 
             var criteria = AND(builder.ToArray());
 
-            var temp = currentSeed.EnumerateSeed(handler).Take(max + 1)
+            var temp = seedEnumerator.Take(max + 1)
                 .EnumerateGeneration(slot).WithIndex()
-                .Where(_ => criteria.CheckConditions(_.element.Content));
+                .Where(_ => criteria.CheckConditions(_.Element.Content));
 
             var results = modeBox.SelectedIndex == 0 ? 
-                temp.Select((res) => new ListViewBinder((uint)res.index, res.element.HeadSeed, res.element.Content, tsv)) :
-                temp.Select((res) => new ListViewBinder((uint)res.index, res.element.HeadSeed.GetIndex(currentSeed), res.element.HeadSeed, res.element.Content, tsv));
+                temp.Select((res) => new ListViewBinder((uint)res.Index, res.Element.HeadSeed, res.Element.Content, tsv)) :
+                temp.Select((res) => new ListViewBinder((uint)res.Index, res.Element.HeadSeed.GetIndex(currentSeed), res.Element.HeadSeed, res.Element.Content, tsv));
 
             _listDGV.SetColumnVisible("Frame", modeBox.SelectedIndex != 0);
             _listDGV.SetData(results);
@@ -280,8 +281,8 @@ namespace COSearch
 
         private void DarkPokemonBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var slot = CoDarkPokemon.GetDarkPokemon(DarkPokemonBox.SelectedIndex).slot;
-            var poke = slot.Pokemon;
+            var slot = ProvidedCoDarkPokemonData.Get(DarkPokemonBox.SelectedIndex).Slot;
+            var poke = slot.Species;
             abilityBox1.ResetItems(poke);
             genderBox1.ResetItems(poke.GenderRatio);
 
@@ -325,6 +326,7 @@ namespace COSearch
 
             var builder = new List<ICriteria<GCIndividual>>();
             if (checkAbility_seed.Checked) builder.Add(new AbilityCriteria(abilityBox2.Text));
+            if (checkGCAbility_seed.Checked) builder.Add(new GCAbilityCriteria(gcAbilityBox1.Text));
             if (checkGender_seed.Checked && genderBox2.SelectedGender != Gender.Genderless) builder.Add(new GenderCriteria(genderBox2.SelectedGender));
             if (checkNature_seed.Checked) builder.Add(new NatureCriteria(natureBox2.SelectedNature));
             if (OnlyShiny_seed.Checked) builder.Add(new ShinyCriteria(tsv, ShinyType.Star | ShinyType.Square));
@@ -333,7 +335,7 @@ namespace COSearch
 
             var criteria = AND(builder.ToArray());
 
-            var slot = CoDarkPokemon.GetDarkPokemon(DarkPokemonBox_seed.SelectedIndex);
+            var slot = ProvidedCoDarkPokemonData.Get(DarkPokemonBox_seed.SelectedIndex).GetGenerator();
             var rowList = new List<TargetSearchBinder>();
             for (uint H = GetValueDec(Hmin_seed); H <= GetValueDec(Hmax_seed); H++)
                 for (uint A = GetValueDec(Amin_seed); A <= GetValueDec(Amax_seed); A++)
@@ -343,16 +345,16 @@ namespace COSearch
                                 for (uint S = GetValueDec(Smin_seed); S <= GetValueDec(Smax_seed); S++)
                                 {
                                     var r = slot.CalcBack(H, A, B, C, D, S, checkDeduplication.Checked).Where(_ => criteria.CheckConditions(_.Individual));
-                                    rowList.AddRange(r.Select(_ => new TargetSearchBinder(_.seed, _.Individual, tsv)));
+                                    rowList.AddRange(r.Select(_ => new TargetSearchBinder(_.Seed, _.Individual, tsv)));
                                 }
             _targetSearchDGV.SetData(rowList);
         }
 
         private void DarkPokemonBox_seed_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gcAbilityBox1.ResetItems(CoDarkPokemon.GetDarkPokemon(DarkPokemonBox_seed.SelectedIndex).slot.Pokemon);
-            abilityBox2.ResetItems(CoDarkPokemon.GetDarkPokemon(DarkPokemonBox_seed.SelectedIndex).slot.Pokemon);
-            genderBox2.ResetItems(CoDarkPokemon.GetDarkPokemon(DarkPokemonBox_seed.SelectedIndex).slot.Pokemon.GenderRatio);
+            gcAbilityBox1.ResetItems(ProvidedCoDarkPokemonData.Get(DarkPokemonBox_seed.SelectedIndex).Slot.Species);
+            abilityBox2.ResetItems(ProvidedCoDarkPokemonData.Get(DarkPokemonBox_seed.SelectedIndex).Slot.Species);
+            genderBox2.ResetItems(ProvidedCoDarkPokemonData.Get(DarkPokemonBox_seed.SelectedIndex).Slot.Species.GenderRatio);
         }
 
         private void blinkCoolTimeBox_ValueChanged(object sender, EventArgs e)
@@ -675,7 +677,7 @@ namespace COSearch
             var rows = startingSeed.EnumerateSeed(new NamingScreen()).EnumerateGeneration(gen).WithIndex()
                 .Skip(l)
                 .Take(r - l + 1)
-                .Where(_ => _.element.TID == tid)
+                .Where(_ => _.Element.TID == tid)
                 .Select(_ => {
                     var (idx, result) = _;
 
@@ -737,7 +739,7 @@ namespace COSearch
             dataGridView6.Rows.Clear();
             var list = new List<DataGridViewRow>();
             foreach ((var index, var res) in seed.EnumerateSeed(new NamingScreen()).Take(max).EnumerateGeneration(gen)
-                .WithIndex().Where(_ => criteria.CheckConditions(_.element)))
+                .WithIndex().Where(_ => criteria.CheckConditions(_.Element)))
             {
                 var head = res.HeadSeed;
                 var umbreon = res.Umbreon;

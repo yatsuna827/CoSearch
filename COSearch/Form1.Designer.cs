@@ -42,7 +42,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.advanceCalcPage = new System.Windows.Forms.TabPage();
             this.label41 = new System.Windows.Forms.Label();
-            this.currentSeedBox1 = new COSearch.SeedBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,12 +53,6 @@
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.indexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remainingStepDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mashCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.procedureCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.procedureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.advanceCalcDGVItem1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,16 +67,11 @@
             this.searchSeedPage = new System.Windows.Forms.TabPage();
             this.checkDeduplication = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.gcAbilityBox1 = new COSearch.AbilityComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkGCAbility_seed = new System.Windows.Forms.CheckBox();
             this.checkHiddenPowerPower1 = new System.Windows.Forms.CheckBox();
-            this.hiddePowerTypeBox1 = new COSearch.HiddePowerTypeBox();
             this.checkHiddenPowerType1 = new System.Windows.Forms.CheckBox();
             this.label46 = new System.Windows.Forms.Label();
             this.hiddenPowerPowerBox1 = new System.Windows.Forms.NumericUpDown();
-            this.genderBox2 = new COSearch.GenderComboBox();
-            this.abilityBox2 = new COSearch.AbilityComboBox();
-            this.natureBox2 = new COSearch.NatureComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -119,13 +107,9 @@
             this.label87 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label88 = new System.Windows.Forms.Label();
-            this.seedBox2 = new COSearch.SeedBox();
             this.label45 = new System.Windows.Forms.Label();
             this.modeBox = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.abilityBox1 = new COSearch.AbilityComboBox();
-            this.genderBox1 = new COSearch.GenderComboBox();
-            this.natureBox1 = new COSearch.NatureComboBox();
             this.StatS = new System.Windows.Forms.NumericUpDown();
             this.StatD = new System.Windows.Forms.NumericUpDown();
             this.StatC = new System.Windows.Forms.NumericUpDown();
@@ -167,6 +151,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label90 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
             this.label69 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -191,8 +179,6 @@
             this.label61 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.seedBox4 = new COSearch.SeedBox();
-            this.seedBox3 = new COSearch.SeedBox();
             this.blinkCalcPage = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
@@ -226,16 +212,12 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.targetSeedBox2 = new COSearch.SeedBox();
-            this.currentSeedBox2 = new COSearch.SeedBox();
             this.idPage = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.id_SIDBox = new COSearch.DigitFixedNumericUpDown();
             this.label77 = new System.Windows.Forms.Label();
-            this.id_TIDBox = new COSearch.DigitFixedNumericUpDown();
             this.id_FromSID = new System.Windows.Forms.RadioButton();
             this.id_FromPID = new System.Windows.Forms.RadioButton();
             this.id_FromID_Star = new System.Windows.Forms.CheckBox();
@@ -274,8 +256,6 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
-            this.id_HiddePowerType = new COSearch.HiddePowerTypeBox();
-            this.id_NatureBox = new COSearch.NatureComboBox();
             this.id_CheckDivideResults = new System.Windows.Forms.CheckBox();
             this.id_CheckClearOnSearch = new System.Windows.Forms.CheckBox();
             this.id_ClearButton = new System.Windows.Forms.Button();
@@ -311,7 +291,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label54 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
-            this.seedBox1 = new COSearch.SeedBox();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -343,7 +322,6 @@
             this.id_UmbreonLabel = new System.Windows.Forms.Label();
             this.id_IDLabel = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
-            this.id_TargetSeedBox = new COSearch.SeedBox();
             this.label85 = new System.Windows.Forms.Label();
             this.id_TimerFrameBox = new System.Windows.Forms.NumericUpDown();
             this.label86 = new System.Windows.Forms.Label();
@@ -354,14 +332,12 @@
             this.label48 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.id_CurrentSeedBox = new COSearch.SeedBox();
             this.label52 = new System.Windows.Forms.Label();
             this.id_AdvanceResultBox = new System.Windows.Forms.NumericUpDown();
             this.label44 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.id_CalcAdvanceButton = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.id_DrawnTIDBox = new COSearch.DigitFixedNumericUpDown();
             this.label82 = new System.Windows.Forms.Label();
             this.id_SearchGapButton = new System.Windows.Forms.Button();
             this.label81 = new System.Windows.Forms.Label();
@@ -390,7 +366,6 @@
             this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_StartingSeedBox = new COSearch.SeedBox();
             this.label78 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -399,10 +374,35 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label89 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label90 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.currentSeedBox1 = new COSearch.SeedBox();
+            this.indexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remainingStepDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mashCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.procedureCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.procedureDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.advanceCalcDGVItem1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gcAbilityBox1 = new COSearch.AbilityComboBox();
+            this.hiddePowerTypeBox1 = new COSearch.HiddePowerTypeBox();
+            this.genderBox2 = new COSearch.GenderComboBox();
+            this.abilityBox2 = new COSearch.AbilityComboBox();
+            this.natureBox2 = new COSearch.NatureComboBox();
+            this.seedBox2 = new COSearch.SeedBox();
+            this.abilityBox1 = new COSearch.AbilityComboBox();
+            this.genderBox1 = new COSearch.GenderComboBox();
+            this.natureBox1 = new COSearch.NatureComboBox();
+            this.seedBox4 = new COSearch.SeedBox();
+            this.seedBox3 = new COSearch.SeedBox();
+            this.targetSeedBox2 = new COSearch.SeedBox();
+            this.currentSeedBox2 = new COSearch.SeedBox();
+            this.id_SIDBox = new COSearch.DigitFixedNumericUpDown();
+            this.id_TIDBox = new COSearch.DigitFixedNumericUpDown();
+            this.id_HiddePowerType = new COSearch.HiddePowerTypeBox();
+            this.id_NatureBox = new COSearch.NatureComboBox();
+            this.seedBox1 = new COSearch.SeedBox();
+            this.id_TargetSeedBox = new COSearch.SeedBox();
+            this.id_CurrentSeedBox = new COSearch.SeedBox();
+            this.id_DrawnTIDBox = new COSearch.DigitFixedNumericUpDown();
+            this.id_StartingSeedBox = new COSearch.SeedBox();
             this.tabControl1.SuspendLayout();
             this.advanceCalcPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -410,7 +410,6 @@
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advanceCalcDGVItem1BindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeBox)).BeginInit();
@@ -455,6 +454,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFrameBox)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown19)).BeginInit();
@@ -476,8 +476,6 @@
             this.tabPage5.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.id_SIDBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.id_TIDBox)).BeginInit();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.id_Smin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.id_Amax)).BeginInit();
@@ -503,13 +501,15 @@
             this.groupBox12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.id_AdvanceResultBox)).BeginInit();
             this.groupBox10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.id_DrawnTIDBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.id_RangeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_ID_Gap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SIDBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TIDBox)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advanceCalcDGVItem1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id_SIDBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id_TIDBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id_DrawnTIDBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -557,17 +557,6 @@
             this.label41.Size = new System.Drawing.Size(157, 24);
             this.label41.TabIndex = 16;
             this.label41.Text = "『候補』の列をダブルクリックすると\r\n『詳細』にリストが出力されます。";
-            // 
-            // currentSeedBox1
-            // 
-            this.currentSeedBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentSeedBox1.Location = new System.Drawing.Point(88, 14);
-            this.currentSeedBox1.MaxLength = 8;
-            this.currentSeedBox1.Name = "currentSeedBox1";
-            this.currentSeedBox1.Size = new System.Drawing.Size(100, 22);
-            this.currentSeedBox1.TabIndex = 14;
-            this.currentSeedBox1.Text = "DEADBEEF";
-            this.currentSeedBox1.ZeroPadding = false;
             // 
             // label6
             // 
@@ -716,51 +705,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
-            // 
-            // indexDataGridViewTextBoxColumn
-            // 
-            this.indexDataGridViewTextBoxColumn.DataPropertyName = "Index";
-            this.indexDataGridViewTextBoxColumn.HeaderText = "消費数";
-            this.indexDataGridViewTextBoxColumn.Name = "indexDataGridViewTextBoxColumn";
-            this.indexDataGridViewTextBoxColumn.ReadOnly = true;
-            this.indexDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // remainingStepDataGridViewTextBoxColumn
-            // 
-            this.remainingStepDataGridViewTextBoxColumn.DataPropertyName = "RemainingStep";
-            this.remainingStepDataGridViewTextBoxColumn.HeaderText = "誤差";
-            this.remainingStepDataGridViewTextBoxColumn.Name = "remainingStepDataGridViewTextBoxColumn";
-            this.remainingStepDataGridViewTextBoxColumn.ReadOnly = true;
-            this.remainingStepDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // mashCountDataGridViewTextBoxColumn
-            // 
-            this.mashCountDataGridViewTextBoxColumn.DataPropertyName = "MashCount";
-            this.mashCountDataGridViewTextBoxColumn.HeaderText = "シ最";
-            this.mashCountDataGridViewTextBoxColumn.Name = "mashCountDataGridViewTextBoxColumn";
-            this.mashCountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mashCountDataGridViewTextBoxColumn.Width = 52;
-            // 
-            // procedureCountDataGridViewTextBoxColumn
-            // 
-            this.procedureCountDataGridViewTextBoxColumn.DataPropertyName = "ProcedureCount";
-            this.procedureCountDataGridViewTextBoxColumn.HeaderText = "手数";
-            this.procedureCountDataGridViewTextBoxColumn.Name = "procedureCountDataGridViewTextBoxColumn";
-            this.procedureCountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.procedureCountDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // procedureDataGridViewTextBoxColumn
-            // 
-            this.procedureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.procedureDataGridViewTextBoxColumn.DataPropertyName = "Procedure";
-            this.procedureDataGridViewTextBoxColumn.HeaderText = "";
-            this.procedureDataGridViewTextBoxColumn.Name = "procedureDataGridViewTextBoxColumn";
-            this.procedureDataGridViewTextBoxColumn.ReadOnly = true;
-            this.procedureDataGridViewTextBoxColumn.Width = 19;
-            // 
-            // advanceCalcDGVItem1BindingSource
-            // 
-            this.advanceCalcDGVItem1BindingSource.DataSource = typeof(COSearch.AdvanceCalcDGVItem1);
             // 
             // tabPage4
             // 
@@ -915,7 +859,7 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.gcAbilityBox1);
-            this.groupBox4.Controls.Add(this.checkBox1);
+            this.groupBox4.Controls.Add(this.checkGCAbility_seed);
             this.groupBox4.Controls.Add(this.checkHiddenPowerPower1);
             this.groupBox4.Controls.Add(this.hiddePowerTypeBox1);
             this.groupBox4.Controls.Add(this.checkHiddenPowerType1);
@@ -959,25 +903,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "条件";
             // 
-            // gcAbilityBox1
+            // checkGCAbility_seed
             // 
-            this.gcAbilityBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gcAbilityBox1.FormattingEnabled = true;
-            this.gcAbilityBox1.Location = new System.Drawing.Point(33, 75);
-            this.gcAbilityBox1.Name = "gcAbilityBox1";
-            this.gcAbilityBox1.Size = new System.Drawing.Size(121, 20);
-            this.gcAbilityBox1.TabIndex = 342;
-            this.ToolTip.SetToolTip(this.gcAbilityBox1, "GC特性を指定します");
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 78);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 14);
-            this.checkBox1.TabIndex = 341;
-            this.checkBox1.TabStop = false;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkGCAbility_seed.AutoSize = true;
+            this.checkGCAbility_seed.Location = new System.Drawing.Point(12, 78);
+            this.checkGCAbility_seed.Name = "checkGCAbility_seed";
+            this.checkGCAbility_seed.Size = new System.Drawing.Size(15, 14);
+            this.checkGCAbility_seed.TabIndex = 341;
+            this.checkGCAbility_seed.TabStop = false;
+            this.checkGCAbility_seed.UseVisualStyleBackColor = true;
             // 
             // checkHiddenPowerPower1
             // 
@@ -988,15 +922,6 @@
             this.checkHiddenPowerPower1.TabIndex = 340;
             this.checkHiddenPowerPower1.Text = "めざパ威力";
             this.checkHiddenPowerPower1.UseVisualStyleBackColor = true;
-            // 
-            // hiddePowerTypeBox1
-            // 
-            this.hiddePowerTypeBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.hiddePowerTypeBox1.FormattingEnabled = true;
-            this.hiddePowerTypeBox1.Location = new System.Drawing.Point(107, 329);
-            this.hiddePowerTypeBox1.Name = "hiddePowerTypeBox1";
-            this.hiddePowerTypeBox1.Size = new System.Drawing.Size(68, 20);
-            this.hiddePowerTypeBox1.TabIndex = 339;
             // 
             // checkHiddenPowerType1
             // 
@@ -1040,34 +965,6 @@
             0,
             0});
             this.hiddenPowerPowerBox1.Enter += new System.EventHandler(this.NumericUpDown_SelectValue);
-            // 
-            // genderBox2
-            // 
-            this.genderBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.genderBox2.FormattingEnabled = true;
-            this.genderBox2.Location = new System.Drawing.Point(33, 101);
-            this.genderBox2.Name = "genderBox2";
-            this.genderBox2.Size = new System.Drawing.Size(52, 20);
-            this.genderBox2.TabIndex = 335;
-            // 
-            // abilityBox2
-            // 
-            this.abilityBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.abilityBox2.FormattingEnabled = true;
-            this.abilityBox2.Location = new System.Drawing.Point(33, 49);
-            this.abilityBox2.Name = "abilityBox2";
-            this.abilityBox2.Size = new System.Drawing.Size(121, 20);
-            this.abilityBox2.TabIndex = 334;
-            this.ToolTip.SetToolTip(this.abilityBox2, "通常の特性を指定します");
-            // 
-            // natureBox2
-            // 
-            this.natureBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.natureBox2.FormattingEnabled = true;
-            this.natureBox2.Location = new System.Drawing.Point(33, 23);
-            this.natureBox2.Name = "natureBox2";
-            this.natureBox2.Size = new System.Drawing.Size(121, 20);
-            this.natureBox2.TabIndex = 33;
             // 
             // label40
             // 
@@ -1547,17 +1444,6 @@
             this.label88.TabIndex = 342;
             this.label88.Text = "F";
             // 
-            // seedBox2
-            // 
-            this.seedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seedBox2.Location = new System.Drawing.Point(90, 13);
-            this.seedBox2.MaxLength = 8;
-            this.seedBox2.Name = "seedBox2";
-            this.seedBox2.Size = new System.Drawing.Size(100, 22);
-            this.seedBox2.TabIndex = 339;
-            this.seedBox2.Text = "3ED5720F";
-            this.seedBox2.ZeroPadding = false;
-            // 
             // label45
             // 
             this.label45.AutoSize = true;
@@ -1574,8 +1460,8 @@
             this.modeBox.Items.AddRange(new object[] {
             "通常",
             "パイラの洞窟",
-            "ダークポケモン研究所B1F",
             "ダークポケモン研究所B2F",
+            "ダークポケモン研究所B3F",
             "町外れのスタンド",
             "連続戦闘(敵の瞬きあり)",
             "連続戦闘(敵の瞬きなし)"});
@@ -1630,33 +1516,6 @@
             this.groupBox3.TabIndex = 22;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "フィルタ";
-            // 
-            // abilityBox1
-            // 
-            this.abilityBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.abilityBox1.FormattingEnabled = true;
-            this.abilityBox1.Location = new System.Drawing.Point(32, 51);
-            this.abilityBox1.Name = "abilityBox1";
-            this.abilityBox1.Size = new System.Drawing.Size(121, 20);
-            this.abilityBox1.TabIndex = 341;
-            // 
-            // genderBox1
-            // 
-            this.genderBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.genderBox1.FormattingEnabled = true;
-            this.genderBox1.Location = new System.Drawing.Point(32, 77);
-            this.genderBox1.Name = "genderBox1";
-            this.genderBox1.Size = new System.Drawing.Size(52, 20);
-            this.genderBox1.TabIndex = 340;
-            // 
-            // natureBox1
-            // 
-            this.natureBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.natureBox1.FormattingEnabled = true;
-            this.natureBox1.Location = new System.Drawing.Point(32, 25);
-            this.natureBox1.Name = "natureBox1";
-            this.natureBox1.Size = new System.Drawing.Size(121, 20);
-            this.natureBox1.TabIndex = 339;
             // 
             // StatS
             // 
@@ -2162,7 +2021,7 @@
             // 
             this.maxFrameBox.Location = new System.Drawing.Point(90, 41);
             this.maxFrameBox.Maximum = new decimal(new int[] {
-            100000,
+            1000000,
             0,
             0,
             0});
@@ -2219,6 +2078,56 @@
             this.tabPage1.TabIndex = 6;
             this.tabPage1.Text = "瞬き計算";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(15, 416);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(124, 16);
+            this.checkBox2.TabIndex = 68;
+            this.checkBox2.Text = "敵トレーナー瞬き有り";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(13, 393);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(26, 12);
+            this.label89.TabIndex = 65;
+            this.label89.Text = "瞬き";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(48, 391);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(54, 19);
+            this.numericUpDown3.TabIndex = 66;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(110, 393);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(12, 12);
+            this.label90.TabIndex = 67;
+            this.label90.Text = "F";
             // 
             // button11
             // 
@@ -2510,28 +2419,6 @@
             this.label7.TabIndex = 40;
             this.label7.Text = "現在のseed";
             // 
-            // seedBox4
-            // 
-            this.seedBox4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seedBox4.Location = new System.Drawing.Point(82, 43);
-            this.seedBox4.MaxLength = 8;
-            this.seedBox4.Name = "seedBox4";
-            this.seedBox4.Size = new System.Drawing.Size(100, 22);
-            this.seedBox4.TabIndex = 57;
-            this.seedBox4.Text = "B27AE396";
-            this.seedBox4.ZeroPadding = false;
-            // 
-            // seedBox3
-            // 
-            this.seedBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seedBox3.Location = new System.Drawing.Point(82, 15);
-            this.seedBox3.MaxLength = 8;
-            this.seedBox3.Name = "seedBox3";
-            this.seedBox3.Size = new System.Drawing.Size(100, 22);
-            this.seedBox3.TabIndex = 41;
-            this.seedBox3.Text = "E6C6E208";
-            this.seedBox3.ZeroPadding = false;
-            // 
             // blinkCalcPage
             // 
             this.blinkCalcPage.Controls.Add(this.groupBox7);
@@ -2572,7 +2459,7 @@
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(144, 16);
             this.radioButton4.TabIndex = 45;
-            this.radioButton4.Text = "ダークポケモン研究所B1F";
+            this.radioButton4.Text = "ダークポケモン研究所B2F";
             this.ToolTip.SetToolTip(this.radioButton4, "ビブラーバ");
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
@@ -2607,7 +2494,7 @@
             this.radioButton1.Size = new System.Drawing.Size(144, 16);
             this.radioButton1.TabIndex = 42;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ダークポケモン研究所B2F";
+            this.radioButton1.Text = "ダークポケモン研究所B3F";
             this.ToolTip.SetToolTip(this.radioButton1, "アリアドス, グランブル, ライコウ");
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -2941,28 +2828,6 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 88;
             // 
-            // targetSeedBox2
-            // 
-            this.targetSeedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.targetSeedBox2.Location = new System.Drawing.Point(90, 41);
-            this.targetSeedBox2.MaxLength = 8;
-            this.targetSeedBox2.Name = "targetSeedBox2";
-            this.targetSeedBox2.Size = new System.Drawing.Size(100, 22);
-            this.targetSeedBox2.TabIndex = 40;
-            this.targetSeedBox2.Text = "B27AE396";
-            this.targetSeedBox2.ZeroPadding = false;
-            // 
-            // currentSeedBox2
-            // 
-            this.currentSeedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentSeedBox2.Location = new System.Drawing.Point(90, 13);
-            this.currentSeedBox2.MaxLength = 8;
-            this.currentSeedBox2.Name = "currentSeedBox2";
-            this.currentSeedBox2.Size = new System.Drawing.Size(100, 22);
-            this.currentSeedBox2.TabIndex = 39;
-            this.currentSeedBox2.Text = "E6C6E208";
-            this.currentSeedBox2.ZeroPadding = false;
-            // 
             // idPage
             // 
             this.idPage.Controls.Add(this.tabControl3);
@@ -3032,20 +2897,6 @@
             this.tabPage6.Text = "IDから検索";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // id_SIDBox
-            // 
-            this.id_SIDBox.Digit = 5;
-            this.id_SIDBox.Enabled = false;
-            this.id_SIDBox.Location = new System.Drawing.Point(41, 222);
-            this.id_SIDBox.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.id_SIDBox.Name = "id_SIDBox";
-            this.id_SIDBox.Size = new System.Drawing.Size(78, 19);
-            this.id_SIDBox.TabIndex = 602;
-            // 
             // label77
             // 
             this.label77.AutoSize = true;
@@ -3054,19 +2905,6 @@
             this.label77.Size = new System.Drawing.Size(23, 12);
             this.label77.TabIndex = 348;
             this.label77.Text = "TID";
-            // 
-            // id_TIDBox
-            // 
-            this.id_TIDBox.Digit = 5;
-            this.id_TIDBox.Location = new System.Drawing.Point(41, 16);
-            this.id_TIDBox.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.id_TIDBox.Name = "id_TIDBox";
-            this.id_TIDBox.Size = new System.Drawing.Size(78, 19);
-            this.id_TIDBox.TabIndex = 600;
             // 
             // id_FromSID
             // 
@@ -3603,26 +3441,6 @@
             this.label74.TabIndex = 325;
             this.label74.Text = "～";
             // 
-            // id_HiddePowerType
-            // 
-            this.id_HiddePowerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.id_HiddePowerType.FormattingEnabled = true;
-            this.id_HiddePowerType.Location = new System.Drawing.Point(95, 239);
-            this.id_HiddePowerType.Name = "id_HiddePowerType";
-            this.id_HiddePowerType.Size = new System.Drawing.Size(68, 20);
-            this.id_HiddePowerType.TabIndex = 50;
-            this.id_HiddePowerType.SelectedIndexChanged += new System.EventHandler(this.id_HiddePowerType_SelectedIndexChanged);
-            // 
-            // id_NatureBox
-            // 
-            this.id_NatureBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.id_NatureBox.FormattingEnabled = true;
-            this.id_NatureBox.Location = new System.Drawing.Point(31, 41);
-            this.id_NatureBox.Name = "id_NatureBox";
-            this.id_NatureBox.Size = new System.Drawing.Size(121, 20);
-            this.id_NatureBox.TabIndex = 2;
-            this.id_NatureBox.SelectedIndexChanged += new System.EventHandler(this.id_NatureBox_SelectedIndexChanged);
-            // 
             // id_CheckDivideResults
             // 
             this.id_CheckDivideResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3943,8 +3761,8 @@
             this.tabPage8.Controls.Add(this.numericUpDown1);
             this.tabPage8.Controls.Add(this.label54);
             this.tabPage8.Controls.Add(this.button5);
-            this.tabPage8.Controls.Add(this.seedBox1);
             this.tabPage8.Controls.Add(this.dataGridView6);
+            this.tabPage8.Controls.Add(this.seedBox1);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Size = new System.Drawing.Size(754, 467);
@@ -4027,17 +3845,6 @@
             this.button5.Text = "↑読込↑";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // seedBox1
-            // 
-            this.seedBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seedBox1.Location = new System.Drawing.Point(90, 12);
-            this.seedBox1.MaxLength = 8;
-            this.seedBox1.Name = "seedBox1";
-            this.seedBox1.Size = new System.Drawing.Size(97, 22);
-            this.seedBox1.TabIndex = 26;
-            this.seedBox1.Text = "0";
-            this.seedBox1.ZeroPadding = false;
             // 
             // dataGridView6
             // 
@@ -4389,19 +4196,6 @@
             this.label83.TabIndex = 50;
             this.label83.Text = "ID";
             // 
-            // id_TargetSeedBox
-            // 
-            this.id_TargetSeedBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_TargetSeedBox.Location = new System.Drawing.Point(92, 22);
-            this.id_TargetSeedBox.MaxLength = 8;
-            this.id_TargetSeedBox.Name = "id_TargetSeedBox";
-            this.id_TargetSeedBox.Size = new System.Drawing.Size(100, 22);
-            this.id_TargetSeedBox.TabIndex = 601;
-            this.id_TargetSeedBox.Text = "E9556E66";
-            this.id_TargetSeedBox.ZeroPadding = false;
-            this.id_TargetSeedBox.Leave += new System.EventHandler(this.id_TargetSeedBox_Leave);
-            this.id_TargetSeedBox.Validated += new System.EventHandler(this.id_TargetSeedBox_Validated);
-            // 
             // label85
             // 
             this.label85.AutoSize = true;
@@ -4516,17 +4310,6 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "消費数調整";
             // 
-            // id_CurrentSeedBox
-            // 
-            this.id_CurrentSeedBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_CurrentSeedBox.Location = new System.Drawing.Point(92, 26);
-            this.id_CurrentSeedBox.MaxLength = 8;
-            this.id_CurrentSeedBox.Name = "id_CurrentSeedBox";
-            this.id_CurrentSeedBox.Size = new System.Drawing.Size(100, 22);
-            this.id_CurrentSeedBox.TabIndex = 611;
-            this.id_CurrentSeedBox.Text = "BEEFBEEF";
-            this.id_CurrentSeedBox.ZeroPadding = false;
-            // 
             // label52
             // 
             this.label52.AutoSize = true;
@@ -4603,19 +4386,6 @@
             this.groupBox10.TabIndex = 620;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "ズレ調整";
-            // 
-            // id_DrawnTIDBox
-            // 
-            this.id_DrawnTIDBox.Digit = 5;
-            this.id_DrawnTIDBox.Location = new System.Drawing.Point(92, 51);
-            this.id_DrawnTIDBox.Maximum = new decimal(new int[] {
-            65535,
-            0,
-            0,
-            0});
-            this.id_DrawnTIDBox.Name = "id_DrawnTIDBox";
-            this.id_DrawnTIDBox.Size = new System.Drawing.Size(78, 19);
-            this.id_DrawnTIDBox.TabIndex = 621;
             // 
             // label82
             // 
@@ -4930,18 +4700,6 @@
             this.dataGridViewTextBoxColumn65.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.dataGridViewTextBoxColumn65.Width = 64;
             // 
-            // id_StartingSeedBox
-            // 
-            this.id_StartingSeedBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.id_StartingSeedBox.Location = new System.Drawing.Point(92, 18);
-            this.id_StartingSeedBox.MaxLength = 8;
-            this.id_StartingSeedBox.Name = "id_StartingSeedBox";
-            this.id_StartingSeedBox.Size = new System.Drawing.Size(100, 22);
-            this.id_StartingSeedBox.TabIndex = 0;
-            this.id_StartingSeedBox.TabStop = false;
-            this.id_StartingSeedBox.Text = "CBE5C691";
-            this.id_StartingSeedBox.ZeroPadding = false;
-            // 
             // label78
             // 
             this.label78.AutoSize = true;
@@ -5022,55 +4780,297 @@
             this.comboBox5.TabIndex = 333;
             this.comboBox5.TabStop = false;
             // 
-            // label89
+            // currentSeedBox1
             // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(13, 393);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(26, 12);
-            this.label89.TabIndex = 65;
-            this.label89.Text = "瞬き";
+            this.currentSeedBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentSeedBox1.Location = new System.Drawing.Point(88, 14);
+            this.currentSeedBox1.MaxLength = 8;
+            this.currentSeedBox1.Name = "currentSeedBox1";
+            this.currentSeedBox1.Size = new System.Drawing.Size(100, 22);
+            this.currentSeedBox1.TabIndex = 14;
+            this.currentSeedBox1.Text = "DEADBEEF";
+            this.currentSeedBox1.ZeroPadding = false;
             // 
-            // numericUpDown3
+            // indexDataGridViewTextBoxColumn
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(48, 391);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            8,
+            this.indexDataGridViewTextBoxColumn.DataPropertyName = "Index";
+            this.indexDataGridViewTextBoxColumn.HeaderText = "消費数";
+            this.indexDataGridViewTextBoxColumn.Name = "indexDataGridViewTextBoxColumn";
+            this.indexDataGridViewTextBoxColumn.ReadOnly = true;
+            this.indexDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // remainingStepDataGridViewTextBoxColumn
+            // 
+            this.remainingStepDataGridViewTextBoxColumn.DataPropertyName = "RemainingStep";
+            this.remainingStepDataGridViewTextBoxColumn.HeaderText = "誤差";
+            this.remainingStepDataGridViewTextBoxColumn.Name = "remainingStepDataGridViewTextBoxColumn";
+            this.remainingStepDataGridViewTextBoxColumn.ReadOnly = true;
+            this.remainingStepDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // mashCountDataGridViewTextBoxColumn
+            // 
+            this.mashCountDataGridViewTextBoxColumn.DataPropertyName = "MashCount";
+            this.mashCountDataGridViewTextBoxColumn.HeaderText = "シ最";
+            this.mashCountDataGridViewTextBoxColumn.Name = "mashCountDataGridViewTextBoxColumn";
+            this.mashCountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mashCountDataGridViewTextBoxColumn.Width = 52;
+            // 
+            // procedureCountDataGridViewTextBoxColumn
+            // 
+            this.procedureCountDataGridViewTextBoxColumn.DataPropertyName = "ProcedureCount";
+            this.procedureCountDataGridViewTextBoxColumn.HeaderText = "手数";
+            this.procedureCountDataGridViewTextBoxColumn.Name = "procedureCountDataGridViewTextBoxColumn";
+            this.procedureCountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.procedureCountDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // procedureDataGridViewTextBoxColumn
+            // 
+            this.procedureDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.procedureDataGridViewTextBoxColumn.DataPropertyName = "Procedure";
+            this.procedureDataGridViewTextBoxColumn.HeaderText = "";
+            this.procedureDataGridViewTextBoxColumn.Name = "procedureDataGridViewTextBoxColumn";
+            this.procedureDataGridViewTextBoxColumn.ReadOnly = true;
+            this.procedureDataGridViewTextBoxColumn.Width = 19;
+            // 
+            // advanceCalcDGVItem1BindingSource
+            // 
+            this.advanceCalcDGVItem1BindingSource.DataSource = typeof(COSearch.AdvanceCalcDGVItem1);
+            // 
+            // gcAbilityBox1
+            // 
+            this.gcAbilityBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gcAbilityBox1.FormattingEnabled = true;
+            this.gcAbilityBox1.Location = new System.Drawing.Point(33, 75);
+            this.gcAbilityBox1.Name = "gcAbilityBox1";
+            this.gcAbilityBox1.Size = new System.Drawing.Size(121, 20);
+            this.gcAbilityBox1.TabIndex = 342;
+            this.ToolTip.SetToolTip(this.gcAbilityBox1, "GC特性を指定します");
+            // 
+            // hiddePowerTypeBox1
+            // 
+            this.hiddePowerTypeBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.hiddePowerTypeBox1.FormattingEnabled = true;
+            this.hiddePowerTypeBox1.Location = new System.Drawing.Point(107, 329);
+            this.hiddePowerTypeBox1.Name = "hiddePowerTypeBox1";
+            this.hiddePowerTypeBox1.Size = new System.Drawing.Size(68, 20);
+            this.hiddePowerTypeBox1.TabIndex = 339;
+            // 
+            // genderBox2
+            // 
+            this.genderBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderBox2.FormattingEnabled = true;
+            this.genderBox2.Location = new System.Drawing.Point(33, 101);
+            this.genderBox2.Name = "genderBox2";
+            this.genderBox2.Size = new System.Drawing.Size(52, 20);
+            this.genderBox2.TabIndex = 335;
+            // 
+            // abilityBox2
+            // 
+            this.abilityBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.abilityBox2.FormattingEnabled = true;
+            this.abilityBox2.Location = new System.Drawing.Point(33, 49);
+            this.abilityBox2.Name = "abilityBox2";
+            this.abilityBox2.Size = new System.Drawing.Size(121, 20);
+            this.abilityBox2.TabIndex = 334;
+            this.ToolTip.SetToolTip(this.abilityBox2, "通常の特性を指定します");
+            // 
+            // natureBox2
+            // 
+            this.natureBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.natureBox2.FormattingEnabled = true;
+            this.natureBox2.Location = new System.Drawing.Point(33, 23);
+            this.natureBox2.Name = "natureBox2";
+            this.natureBox2.Size = new System.Drawing.Size(121, 20);
+            this.natureBox2.TabIndex = 33;
+            // 
+            // seedBox2
+            // 
+            this.seedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seedBox2.Location = new System.Drawing.Point(90, 13);
+            this.seedBox2.MaxLength = 8;
+            this.seedBox2.Name = "seedBox2";
+            this.seedBox2.Size = new System.Drawing.Size(100, 22);
+            this.seedBox2.TabIndex = 339;
+            this.seedBox2.Text = "3ED5720F";
+            this.seedBox2.ZeroPadding = false;
+            // 
+            // abilityBox1
+            // 
+            this.abilityBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.abilityBox1.FormattingEnabled = true;
+            this.abilityBox1.Location = new System.Drawing.Point(32, 51);
+            this.abilityBox1.Name = "abilityBox1";
+            this.abilityBox1.Size = new System.Drawing.Size(121, 20);
+            this.abilityBox1.TabIndex = 341;
+            // 
+            // genderBox1
+            // 
+            this.genderBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderBox1.FormattingEnabled = true;
+            this.genderBox1.Location = new System.Drawing.Point(32, 77);
+            this.genderBox1.Name = "genderBox1";
+            this.genderBox1.Size = new System.Drawing.Size(52, 20);
+            this.genderBox1.TabIndex = 340;
+            // 
+            // natureBox1
+            // 
+            this.natureBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.natureBox1.FormattingEnabled = true;
+            this.natureBox1.Location = new System.Drawing.Point(32, 25);
+            this.natureBox1.Name = "natureBox1";
+            this.natureBox1.Size = new System.Drawing.Size(121, 20);
+            this.natureBox1.TabIndex = 339;
+            // 
+            // seedBox4
+            // 
+            this.seedBox4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seedBox4.Location = new System.Drawing.Point(82, 43);
+            this.seedBox4.MaxLength = 8;
+            this.seedBox4.Name = "seedBox4";
+            this.seedBox4.Size = new System.Drawing.Size(100, 22);
+            this.seedBox4.TabIndex = 57;
+            this.seedBox4.Text = "B27AE396";
+            this.seedBox4.ZeroPadding = false;
+            // 
+            // seedBox3
+            // 
+            this.seedBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seedBox3.Location = new System.Drawing.Point(82, 15);
+            this.seedBox3.MaxLength = 8;
+            this.seedBox3.Name = "seedBox3";
+            this.seedBox3.Size = new System.Drawing.Size(100, 22);
+            this.seedBox3.TabIndex = 41;
+            this.seedBox3.Text = "E6C6E208";
+            this.seedBox3.ZeroPadding = false;
+            // 
+            // targetSeedBox2
+            // 
+            this.targetSeedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.targetSeedBox2.Location = new System.Drawing.Point(90, 41);
+            this.targetSeedBox2.MaxLength = 8;
+            this.targetSeedBox2.Name = "targetSeedBox2";
+            this.targetSeedBox2.Size = new System.Drawing.Size(100, 22);
+            this.targetSeedBox2.TabIndex = 40;
+            this.targetSeedBox2.Text = "B27AE396";
+            this.targetSeedBox2.ZeroPadding = false;
+            // 
+            // currentSeedBox2
+            // 
+            this.currentSeedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentSeedBox2.Location = new System.Drawing.Point(90, 13);
+            this.currentSeedBox2.MaxLength = 8;
+            this.currentSeedBox2.Name = "currentSeedBox2";
+            this.currentSeedBox2.Size = new System.Drawing.Size(100, 22);
+            this.currentSeedBox2.TabIndex = 39;
+            this.currentSeedBox2.Text = "E6C6E208";
+            this.currentSeedBox2.ZeroPadding = false;
+            // 
+            // id_SIDBox
+            // 
+            this.id_SIDBox.Digit = 5;
+            this.id_SIDBox.Enabled = false;
+            this.id_SIDBox.Location = new System.Drawing.Point(41, 222);
+            this.id_SIDBox.Maximum = new decimal(new int[] {
+            65535,
             0,
             0,
             0});
-            this.numericUpDown3.Minimum = new decimal(new int[] {
-            4,
+            this.id_SIDBox.Name = "id_SIDBox";
+            this.id_SIDBox.Size = new System.Drawing.Size(78, 19);
+            this.id_SIDBox.TabIndex = 602;
+            // 
+            // id_TIDBox
+            // 
+            this.id_TIDBox.Digit = 5;
+            this.id_TIDBox.Location = new System.Drawing.Point(41, 16);
+            this.id_TIDBox.Maximum = new decimal(new int[] {
+            65535,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(54, 19);
-            this.numericUpDown3.TabIndex = 66;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            4,
+            this.id_TIDBox.Name = "id_TIDBox";
+            this.id_TIDBox.Size = new System.Drawing.Size(78, 19);
+            this.id_TIDBox.TabIndex = 600;
+            // 
+            // id_HiddePowerType
+            // 
+            this.id_HiddePowerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.id_HiddePowerType.FormattingEnabled = true;
+            this.id_HiddePowerType.Location = new System.Drawing.Point(95, 239);
+            this.id_HiddePowerType.Name = "id_HiddePowerType";
+            this.id_HiddePowerType.Size = new System.Drawing.Size(68, 20);
+            this.id_HiddePowerType.TabIndex = 50;
+            this.id_HiddePowerType.SelectedIndexChanged += new System.EventHandler(this.id_HiddePowerType_SelectedIndexChanged);
+            // 
+            // id_NatureBox
+            // 
+            this.id_NatureBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.id_NatureBox.FormattingEnabled = true;
+            this.id_NatureBox.Location = new System.Drawing.Point(31, 41);
+            this.id_NatureBox.Name = "id_NatureBox";
+            this.id_NatureBox.Size = new System.Drawing.Size(121, 20);
+            this.id_NatureBox.TabIndex = 2;
+            this.id_NatureBox.SelectedIndexChanged += new System.EventHandler(this.id_NatureBox_SelectedIndexChanged);
+            // 
+            // seedBox1
+            // 
+            this.seedBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seedBox1.Location = new System.Drawing.Point(90, 12);
+            this.seedBox1.MaxLength = 8;
+            this.seedBox1.Name = "seedBox1";
+            this.seedBox1.Size = new System.Drawing.Size(97, 22);
+            this.seedBox1.TabIndex = 26;
+            this.seedBox1.Text = "0";
+            this.seedBox1.ZeroPadding = false;
+            // 
+            // id_TargetSeedBox
+            // 
+            this.id_TargetSeedBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_TargetSeedBox.Location = new System.Drawing.Point(92, 22);
+            this.id_TargetSeedBox.MaxLength = 8;
+            this.id_TargetSeedBox.Name = "id_TargetSeedBox";
+            this.id_TargetSeedBox.Size = new System.Drawing.Size(100, 22);
+            this.id_TargetSeedBox.TabIndex = 601;
+            this.id_TargetSeedBox.Text = "E9556E66";
+            this.id_TargetSeedBox.ZeroPadding = false;
+            this.id_TargetSeedBox.Leave += new System.EventHandler(this.id_TargetSeedBox_Leave);
+            this.id_TargetSeedBox.Validated += new System.EventHandler(this.id_TargetSeedBox_Validated);
+            // 
+            // id_CurrentSeedBox
+            // 
+            this.id_CurrentSeedBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_CurrentSeedBox.Location = new System.Drawing.Point(92, 26);
+            this.id_CurrentSeedBox.MaxLength = 8;
+            this.id_CurrentSeedBox.Name = "id_CurrentSeedBox";
+            this.id_CurrentSeedBox.Size = new System.Drawing.Size(100, 22);
+            this.id_CurrentSeedBox.TabIndex = 611;
+            this.id_CurrentSeedBox.Text = "BEEFBEEF";
+            this.id_CurrentSeedBox.ZeroPadding = false;
+            // 
+            // id_DrawnTIDBox
+            // 
+            this.id_DrawnTIDBox.Digit = 5;
+            this.id_DrawnTIDBox.Location = new System.Drawing.Point(92, 51);
+            this.id_DrawnTIDBox.Maximum = new decimal(new int[] {
+            65535,
             0,
             0,
             0});
+            this.id_DrawnTIDBox.Name = "id_DrawnTIDBox";
+            this.id_DrawnTIDBox.Size = new System.Drawing.Size(78, 19);
+            this.id_DrawnTIDBox.TabIndex = 621;
             // 
-            // label90
+            // id_StartingSeedBox
             // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(110, 393);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(12, 12);
-            this.label90.TabIndex = 67;
-            this.label90.Text = "F";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(15, 416);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(124, 16);
-            this.checkBox2.TabIndex = 68;
-            this.checkBox2.Text = "敵トレーナー瞬き有り";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.id_StartingSeedBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.id_StartingSeedBox.Location = new System.Drawing.Point(92, 18);
+            this.id_StartingSeedBox.MaxLength = 8;
+            this.id_StartingSeedBox.Name = "id_StartingSeedBox";
+            this.id_StartingSeedBox.Size = new System.Drawing.Size(100, 22);
+            this.id_StartingSeedBox.TabIndex = 0;
+            this.id_StartingSeedBox.TabStop = false;
+            this.id_StartingSeedBox.Text = "CBE5C691";
+            this.id_StartingSeedBox.ZeroPadding = false;
             // 
             // Form1
             // 
@@ -5094,7 +5094,6 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advanceCalcDGVItem1BindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeBox)).EndInit();
@@ -5144,6 +5143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.maxFrameBox)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown20)).EndInit();
@@ -5171,8 +5171,6 @@
             this.tabControl4.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.id_SIDBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.id_TIDBox)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.id_Smin)).EndInit();
@@ -5203,14 +5201,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.id_AdvanceResultBox)).EndInit();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.id_DrawnTIDBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.id_RangeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_ID_Gap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SIDBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TIDBox)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advanceCalcDGVItem1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id_SIDBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id_TIDBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.id_DrawnTIDBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -5379,7 +5379,7 @@
         private System.Windows.Forms.CheckBox checkHiddenPowerPower1;
         private HiddePowerTypeBox hiddePowerTypeBox1;
         private AbilityComboBox gcAbilityBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkGCAbility_seed;
         private System.Windows.Forms.ToolTip ToolTip;
         private System.Windows.Forms.TabPage idPage;
         private System.Windows.Forms.Label label44;
