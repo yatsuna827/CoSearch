@@ -23,13 +23,14 @@ namespace COSearch
             for (int i = 0; i < timeline.Length; i++)
                 dataGridView1.Rows[i].Cells[0].Value = timeline[i];
 
+            // フレームは30fpsで扱っているため、60fpsに直すために*2する
             checkPoints = new int[timeline.Length];
             checkPoints[0] = timeline[0] * 2;
             for (int i = 1; i < timeline.Length; i++)
                 checkPoints[i] = checkPoints[i - 1] + timeline[i] * 2;
 
             this.frequency = frequency;
-            this.breakingFrames = breakingFrames;
+            this.breakingFrames = breakingFrames * 2;
 
             blinkSoundPlayer = new SoundPlayer(Properties.Resources.button_7);
             beepPlayer = new SoundPlayer(Properties.Resources.beep_07a);

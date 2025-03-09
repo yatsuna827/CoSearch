@@ -37,13 +37,17 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.seedBox2 = new COSearch.SeedBox();
-            this.seedBox1 = new COSearch.SeedBox();
             this.numericUpDown21 = new System.Windows.Forms.NumericUpDown();
             this.label67 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
+            this.errorRangeBox = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.seedBox2 = new COSearch.SeedBox();
+            this.seedBox1 = new COSearch.SeedBox();
             ((System.ComponentModel.ISupportInitialize)(this.blankDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRangeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -142,28 +146,6 @@
             this.label2.TabIndex = 59;
             this.label2.Text = "目標";
             // 
-            // seedBox2
-            // 
-            this.seedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seedBox2.Location = new System.Drawing.Point(379, 12);
-            this.seedBox2.MaxLength = 8;
-            this.seedBox2.Name = "seedBox2";
-            this.seedBox2.Size = new System.Drawing.Size(100, 22);
-            this.seedBox2.TabIndex = 55;
-            this.seedBox2.Text = "0";
-            this.seedBox2.ZeroPadding = false;
-            // 
-            // seedBox1
-            // 
-            this.seedBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seedBox1.Location = new System.Drawing.Point(175, 12);
-            this.seedBox1.MaxLength = 8;
-            this.seedBox1.Name = "seedBox1";
-            this.seedBox1.Size = new System.Drawing.Size(100, 22);
-            this.seedBox1.TabIndex = 53;
-            this.seedBox1.Text = "F85B6830";
-            this.seedBox1.ZeroPadding = false;
-            // 
             // numericUpDown21
             // 
             this.numericUpDown21.Location = new System.Drawing.Point(379, 97);
@@ -189,11 +171,71 @@
             this.label66.TabIndex = 62;
             this.label66.Text = "制動時間";
             // 
+            // errorRangeBox
+            // 
+            this.errorRangeBox.Location = new System.Drawing.Point(175, 97);
+            this.errorRangeBox.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.errorRangeBox.Name = "errorRangeBox";
+            this.errorRangeBox.Size = new System.Drawing.Size(54, 19);
+            this.errorRangeBox.TabIndex = 63;
+            this.errorRangeBox.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(237, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(12, 12);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "F";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(134, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 12);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "誤差";
+            // 
+            // seedBox2
+            // 
+            this.seedBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seedBox2.Location = new System.Drawing.Point(379, 12);
+            this.seedBox2.MaxLength = 8;
+            this.seedBox2.Name = "seedBox2";
+            this.seedBox2.Size = new System.Drawing.Size(100, 22);
+            this.seedBox2.TabIndex = 55;
+            this.seedBox2.Text = "0";
+            this.seedBox2.ZeroPadding = false;
+            // 
+            // seedBox1
+            // 
+            this.seedBox1.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seedBox1.Location = new System.Drawing.Point(175, 12);
+            this.seedBox1.MaxLength = 8;
+            this.seedBox1.Name = "seedBox1";
+            this.seedBox1.Size = new System.Drawing.Size(100, 22);
+            this.seedBox1.TabIndex = 53;
+            this.seedBox1.Text = "F85B6830";
+            this.seedBox1.ZeroPadding = false;
+            // 
             // BlinkWatcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(491, 340);
+            this.Controls.Add(this.errorRangeBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.numericUpDown21);
             this.Controls.Add(this.label67);
             this.Controls.Add(this.label66);
@@ -212,6 +254,7 @@
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.BlinkWatcher_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.blankDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorRangeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +275,8 @@
         private System.Windows.Forms.NumericUpDown numericUpDown21;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.NumericUpDown errorRangeBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

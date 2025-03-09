@@ -25,7 +25,6 @@ namespace COSearch
 
         private bool _working = false;
         private List<int> _blanks = new List<int>();
-        private uint _foundSeed;
         private int _index = -1;
         private readonly int _cooltime;
         private readonly bool _enemyBlinking;
@@ -36,12 +35,15 @@ namespace COSearch
             if (_working)
             {
                 _blanks = new List<int>();
+                _prev = 0;
                 blankDGV.Rows.Clear();
                 button1.Text = "観測中止";
+                errorRangeBox.ReadOnly = true;
             }
             else
             {
                 button1.Text = "観測開始";
+                errorRangeBox.ReadOnly = false;
             }
         }
 
@@ -68,13 +70,12 @@ namespace COSearch
                 {
                     var seed = seedBox1.Seed;
 
-                    var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(4, 10), false, 10);
-                    var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, _blanks.ToArray(), handler, 10);
+                    var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(4, 10), enemyBlinking: _enemyBlinking, initCounter: 10);
+                    var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, _blanks.ToArray(), handler, (int)errorRangeBox.Value);
                     textBox1.Text = string.Join(Environment.NewLine, result.Select(_ => $"{_.GetIndex(seed)}[F] {_:X8}"));
 
                     if (result.Count() == 1)
                     {
-                        _foundSeed = result.First();
                         _index = (int)result.First().GetIndex(seed);
                         _working = false;
                         button1.Text = "観測開始";
@@ -96,34 +97,25 @@ namespace COSearch
                 // arr - 1が必要な待機時間(フレーム)
                 // -1が必要なのは、先頭のseedは現在地である(=0基準である)ため
 
-                var blinkObjects = _enemyBlinking ? 
-                    new[] {
-                        new BlinkObject(10, 10),
-                        new BlinkObject(10, 10),
-                        new BlinkObject(_cooltime, 10)
-                    } : 
-                    new[] {
-                        new BlinkObject(10, 10),
-                        new BlinkObject(_cooltime, 10)
-                    };
+                var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(_cooltime, 10), _enemyBlinking, 10);
 
-                var arr = initSeed.EnumerateSeed(new BlinkObjectEnumeratorHanlder(blinkObjects))
+                var arr = initSeed.EnumerateSeed(handler)
                     .SkipWhile(_ => _.GetIndex(initSeed) < _index)
                     .TakeWhile(_ => _.GetIndex(initSeed) <= targetIndex).ToArray();
 
                 // 「現在地から目標seedまでの瞬き間隔の系列」
-                var blinkSeries = initSeed.EnumerateBlinkingSeedInBattle()
-                    .SkipWhile(_ => _.lcgIndex < _index)
-                    .TakeWhile(_ => _.lcgIndex <= targetIndex);
+                var blinkSeries = initSeed.EnumerateActionSequence(handler)
+                    .SkipWhile(_ => _.Seed.GetIndex(initSeed) < _index)
+                    .TakeWhile(_ => _.Seed.GetIndex(initSeed) <= targetIndex);
 
                 // 残り待機時間 - 瞬き間隔の系列の総和
-                var rest = (arr.Length - 1) - blinkSeries.Skip(1).Sum(_ => _.interval);
+                var rest = (arr.Length - 1) - blinkSeries.Skip(1).Sum(_ => _.Interval);
 
                 // 目標seedがちょうど瞬きに重なるとは限らないため
                 // 余りが出る場合は末尾に追加する必要がある
                 var blinks = rest > 0 ?
-                    blinkSeries.Select(_ => _.interval).Append(rest).ToArray() :
-                    blinkSeries.Select(_ => _.interval).ToArray();
+                    blinkSeries.Select(_ => _.Interval).Append(rest).ToArray() :
+                    blinkSeries.Select(_ => _.Interval).ToArray();
 
                 if (_timer == null || _timer.IsDisposed)
                     _timer = new BlinkTimer(blinks, breakingFrames: (int)numericUpDown21.Value, baseTick: _prev);
@@ -136,15 +128,16 @@ namespace COSearch
         {
             _prev = DateTime.Now.Ticks;
 
-            var seed = seedBox1.Seed;
+            var seed = 0xa30a2b02u; //seedBox1.Seed;
 
-            var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(4, 10), false, 10);
-            var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, new int[] { 853, 854, 443, 650, 609, 806, 650, 387, 837, 600 }, handler, 10);
+            var handler = BlinkObjectEnumeratorHanlder.ResultScene(new BlinkObject(4, 10), _enemyBlinking, 10);
+            var result = SeedFinder.FindCurrentSeedByBlinkInBattle(seed, 500000, new int[] { 
+                57, 74, 39, 40, 387, 242, 341, 185, 481, 62, 525, 212, 411, 147,
+            }, handler, 10);
             textBox1.Text = string.Join(Environment.NewLine, result.Select(_ => $"{_.GetIndex(seed)}[F] {_:X8}"));
 
             if (result.Count() == 1)
             {
-                _foundSeed = result.First();
                 _index = (int)result.First().GetIndex(seed);
                 _working = false;
                 button1.Text = "観測開始";

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace COSearch
 {
-    class DataGridViewWrapper<TData>
+    public class DataGridViewWrapper<TData>
     {
         private readonly DataGridView _dataGridView;
         private readonly Dictionary<string, DataGridViewTextBoxColumn> _columnMap;
