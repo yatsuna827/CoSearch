@@ -10,7 +10,10 @@ using PokemonCoRNGLibrary;
 using PokemonCoRNGLibrary.AdvancePlanning;
 using PokemonCoRNGLibrary.AdvanceSource;
 using PokemonCoRNGLibrary.ProvidedData;
+using PokemonCoRNGLibrary.Generator.Extension;
 using PokemonStandardLibrary.CommonExtension;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace COSearch
 {
@@ -31,6 +34,7 @@ namespace COSearch
             _resultDataGridView = new DataGridViewWrapper<BattleNowAdvanceResultBinder>(dataGridView_p1);
             _dataGridViewWrapper_p2 = new DataGridViewWrapper<BlinkAndSnatchListBinder>(dataGridView_p2);
             _dataGridViewWrapper_p4 = new DataGridViewWrapper<BlinkAndIrregularAdvanceBinder>(dataGridView_p4);
+            _dataGridViewWrapper_p6 = new DataGridViewWrapper<NPCWaitBinder>(dataGridView_p6);
 
             irregularAdvanceBox_p4.SelectedIndex = 0;
 
@@ -44,23 +48,30 @@ namespace COSearch
                 // 瞬きだけで消費
                 tabControl.SelectedIndex = 2;
             }
+            // 不定消費: パイラタウン
+            // まずはNPC待機を調整する
+            else if (new[] { "オオタチ", "ヨルノズク", "ポポッコ", "ヌオー", "ムウマ", "マグマッグ", "モココ", "ハリーセン" }.Contains(pokemon.Slot.Species.Name))
+            {
+                tabControl.SelectedIndex = 5;
+                irregularAdvanceBox_p4.SelectedIndex = 0;
+            }
             // 不定消費: パイラの洞窟
             else if (new[] { "アサナン", "チルット" }.Contains(pokemon.Slot.Species.Name))
             {
                 tabControl.SelectedIndex = 3;
-                irregularAdvanceBox_p4.SelectedIndex = 0;
+                irregularAdvanceBox_p4.SelectedIndex = 1;
             }
             // 不定消費: ダークポケモン研究所B2F
             else if (pokemon.Slot.Species.Name == "ビブラーバ")
             {
                 tabControl.SelectedIndex = 3;
-                irregularAdvanceBox_p4.SelectedIndex = 1;
+                irregularAdvanceBox_p4.SelectedIndex = 2;
             }
             // 不定消費: ダークポケモン研究所B3F
             else if (new[] { "アリアドス", "グランブル", "ライコウ" }.Contains(pokemon.Slot.Species.Name))
             {
                 tabControl.SelectedIndex = 3;
-                irregularAdvanceBox_p4.SelectedIndex = 2;
+                irregularAdvanceBox_p4.SelectedIndex = 3;
             }
             // 御三家
             else if (new[] { "ベイリーフ", "マグマラシ", "アリゲイツ" }.Contains(pokemon.Slot.Species.Name))
@@ -68,16 +79,16 @@ namespace COSearch
                 // スナッチ団アジトでの調整が一番楽なので瞬き+スナッチリスト
                 tabControl.SelectedIndex = 1;
                 // 不定消費はダークポケモン研究所B3Fに合わせておく
-                irregularAdvanceBox_p4.SelectedIndex = 2;
+                irregularAdvanceBox_p4.SelectedIndex = 3;
             }
             // 町外れのスタンド
             else if (pokemon.Slot.Species.Name == "トゲチック")
             {
                 tabControl.SelectedIndex = 3;
-                irregularAdvanceBox_p4.SelectedIndex = 3;
+                irregularAdvanceBox_p4.SelectedIndex = 4;
             }
             // 連続戦闘するしかないやつ
-            else if (new[] { "マンタイン", "ホウオウ" }.Contains(pokemon.Slot.Species.Name))
+            else if (new[] { "ホウオウ" }.Contains(pokemon.Slot.Species.Name))
             {
                 tabControl.SelectedIndex = 4;
             }
@@ -310,10 +321,11 @@ namespace COSearch
 
         private ISeedEnumeratorHandler GetSeedEnumeratorHandler_p4()
         {
-            if (irregularAdvanceBox_p4.SelectedIndex == 0) return new PyriteCave();
-            if (irregularAdvanceBox_p4.SelectedIndex == 1) return new CipherLabB2F();
-            if (irregularAdvanceBox_p4.SelectedIndex == 2) return new CipherLabB3F();
-            if (irregularAdvanceBox_p4.SelectedIndex == 3) return new OutskirtStand();
+            if (irregularAdvanceBox_p4.SelectedIndex == 0) return new PyriteTown().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4)));
+            if (irregularAdvanceBox_p4.SelectedIndex == 1) return new PyriteCave().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4)));
+            if (irregularAdvanceBox_p4.SelectedIndex == 2) return new CipherLabB2F();
+            if (irregularAdvanceBox_p4.SelectedIndex == 3) return new CipherLabB3F();
+            if (irregularAdvanceBox_p4.SelectedIndex == 4) return new OutskirtStand().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4)));
 
             // never reach
             throw new Exception();
@@ -401,6 +413,75 @@ namespace COSearch
             if (_watcherForm == null || _watcherForm.IsDisposed)
                 _watcherForm = new BlinkWatcher((int)coolTimeBox.Value, checkEnemyBlinking_p5.Checked);
             _watcherForm.Show();
+        }
+
+        // page6 --------------------
+        private DataGridViewWrapper<NPCWaitBinder> _dataGridViewWrapper_p6;
+
+        private async void OnClickCalcButton_p6(object sender, EventArgs e)
+        {
+            var currentSeed = currentSeedBox.Seed;
+
+            var minWait = (float)minWaitBox_p6.Value;
+            var maxFrames = (int)maxFrames_p6.Value;
+            var framesNpcMove = (int)framesNpcMoveBox_p6.Value;
+
+            calcButton_p6.Enabled = false;
+            var data = await Task.Run(() =>
+            {
+                var result = new List<NPCWaitBinder>();
+                foreach (var s in currentSeed.EnumerateSeed().Take(maxFrames + 1))
+                {
+                    if (s.IsSafeInPyriteTown(minWait, framesNpcMove))
+                    {
+                        var seed = s;
+                        seed.Initialize();
+                        var wait = seed.ComputeMinimumWait(framesNpcMove);
+                        result.Add(new NPCWaitBinder(s, s.GetIndex(currentSeed), wait));
+                    }
+                }
+                return result;
+            });
+            _dataGridViewWrapper_p6.SetData(data);
+            calcButton_p6.Enabled = true;
+        }
+        private void OnCellDoubleClick__DataGridView_p6(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = e.RowIndex;
+            if (row < 0) return;
+
+            var currentSeed = currentSeedBox.Seed;
+
+            var seed = Convert.ToUInt32(dataGridView_p6[0, row].Value as string, 16);
+            var targetIndex = seed.GetIndex(currentSeed);
+            if (targetIndex > 500000)
+            {
+                MessageBox.Show($"{targetIndex}消費は多すぎます.\r\nもう少し近くなるまで適当に消費してください.");
+                return;
+            }
+
+            var cool = (int)coolTimeBox.Value;
+            var handler = new BlinkObjectEnumeratorHanlder(new BlinkObject(cool));
+
+            var totalWaitingTime = currentSeed.EnumerateSeed(handler)
+                .TakeWhile(_ => _.GetIndex(currentSeed) < targetIndex).Count();
+
+            // 「現在地から目標seedまでの瞬き間隔の系列」
+            var blinkSeries = currentSeed.EnumerateActionSequence(handler)
+                .TakeWhile(_ => _.Seed.GetIndex(currentSeed) <= targetIndex);
+
+            var rest = totalWaitingTime - blinkSeries.Sum(_ => _.Interval);
+
+            // 目標seedがちょうど瞬きに重なるとは限らないため
+            // 余りが出る場合は末尾に追加する必要がある
+            var blinks = rest > 0 ?
+                blinkSeries.Select(_ => _.Interval).Append(rest).ToArray() :
+                blinkSeries.Select(_ => _.Interval).ToArray();
+
+            var breaking = (int)timerBreakingFramesBox.Value;
+
+            if (blinks.Length > 0)
+                new BlinkTimer(blinks, breakingFrames: breaking).Show();
         }
 
     }
@@ -514,6 +595,25 @@ namespace COSearch
             Seed = $"{seed:X8}";
             Advances = $"{advances} [F]";
             SecondFrames = $"{secondFrames}F";
+        }
+    }
+
+    class NPCWaitBinder
+    {
+        [DataGridViewRowHeader(88, "seed")]
+        public string Seed { get; }
+
+        [DataGridViewRowHeader(100, "消費数")]
+        public string Advances { get; }
+
+        [DataGridViewRowHeader(128, "NPC待機時間")]
+        public string NPCWait { get; }
+
+        public NPCWaitBinder(uint seed, uint advances, float wait)
+        {
+            Seed = $"{seed:X8}";
+            Advances = $"{advances} [F]";
+            NPCWait = $"{wait:f2} sec";
         }
     }
 

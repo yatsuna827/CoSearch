@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label41 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,6 +81,18 @@
             this.tabPage_ByBlinkInBattle = new System.Windows.Forms.TabPage();
             this.checkEnemyBlinking_p5 = new System.Windows.Forms.CheckBox();
             this.calcButton_p5 = new System.Windows.Forms.Button();
+            this.tabPage_PyriteNPC = new System.Windows.Forms.TabPage();
+            this.dataGridView_p6 = new System.Windows.Forms.DataGridView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.framesNpcMoveBox_p6 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maxFrames_p6 = new System.Windows.Forms.NumericUpDown();
+            this.calcButton_p6 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.minWaitBox_p6 = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.coolTimeBox = new System.Windows.Forms.NumericUpDown();
             this.label62 = new System.Windows.Forms.Label();
@@ -90,6 +104,7 @@
             this.label66 = new System.Windows.Forms.Label();
             this.currentSeedBox = new COSearch.SeedBox();
             this.targetSeedBox = new COSearch.SeedBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.RoughlyRangeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_p1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RangeBox)).BeginInit();
@@ -106,6 +121,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_p4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minFrameBox_p4)).BeginInit();
             this.tabPage_ByBlinkInBattle.SuspendLayout();
+            this.tabPage_PyriteNPC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_p6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.framesNpcMoveBox_p6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxFrames_p6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minWaitBox_p6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coolTimeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerFrequencyBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerBreakingFramesBox)).BeginInit();
@@ -199,8 +219,8 @@
             this.dataGridView_p1.AllowUserToDeleteRows = false;
             this.dataGridView_p1.AllowUserToResizeColumns = false;
             this.dataGridView_p1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView_p1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView_p1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView_p1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -270,6 +290,7 @@
             this.tabControl.Controls.Add(this.tabPage_ByBlink);
             this.tabControl.Controls.Add(this.tabPage_ByBlinkAndObject);
             this.tabControl.Controls.Add(this.tabPage_ByBlinkInBattle);
+            this.tabControl.Controls.Add(this.tabPage_PyriteNPC);
             this.tabControl.Location = new System.Drawing.Point(10, 88);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -364,8 +385,8 @@
             this.dataGridView_p2.AllowUserToDeleteRows = false;
             this.dataGridView_p2.AllowUserToResizeColumns = false;
             this.dataGridView_p2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView_p2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView_p2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridView_p2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -503,6 +524,7 @@
             this.irregularAdvanceBox_p4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.irregularAdvanceBox_p4.FormattingEnabled = true;
             this.irregularAdvanceBox_p4.Items.AddRange(new object[] {
+            "パイラタウン",
             "パイラの洞窟",
             "ダークポケモン研究所B2F",
             "ダークポケモン研究所B3F",
@@ -652,8 +674,8 @@
             this.dataGridView_p4.AllowUserToDeleteRows = false;
             this.dataGridView_p4.AllowUserToResizeColumns = false;
             this.dataGridView_p4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView_p4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView_p4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView_p4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -724,6 +746,185 @@
             this.calcButton_p5.Text = "連続戦闘";
             this.calcButton_p5.UseVisualStyleBackColor = true;
             this.calcButton_p5.Click += new System.EventHandler(this.OnClickCalcButton_p5);
+            // 
+            // tabPage_PyriteNPC
+            // 
+            this.tabPage_PyriteNPC.Controls.Add(this.dataGridView_p6);
+            this.tabPage_PyriteNPC.Controls.Add(this.label11);
+            this.tabPage_PyriteNPC.Controls.Add(this.label10);
+            this.tabPage_PyriteNPC.Controls.Add(this.label9);
+            this.tabPage_PyriteNPC.Controls.Add(this.framesNpcMoveBox_p6);
+            this.tabPage_PyriteNPC.Controls.Add(this.label8);
+            this.tabPage_PyriteNPC.Controls.Add(this.maxFrames_p6);
+            this.tabPage_PyriteNPC.Controls.Add(this.calcButton_p6);
+            this.tabPage_PyriteNPC.Controls.Add(this.label6);
+            this.tabPage_PyriteNPC.Controls.Add(this.minWaitBox_p6);
+            this.tabPage_PyriteNPC.Controls.Add(this.label7);
+            this.tabPage_PyriteNPC.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_PyriteNPC.Name = "tabPage_PyriteNPC";
+            this.tabPage_PyriteNPC.Size = new System.Drawing.Size(857, 397);
+            this.tabPage_PyriteNPC.TabIndex = 5;
+            this.tabPage_PyriteNPC.Text = "パイラNPC";
+            this.tabPage_PyriteNPC.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_p6
+            // 
+            this.dataGridView_p6.AllowUserToAddRows = false;
+            this.dataGridView_p6.AllowUserToDeleteRows = false;
+            this.dataGridView_p6.AllowUserToResizeColumns = false;
+            this.dataGridView_p6.AllowUserToResizeRows = false;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView_p6.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridView_p6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_p6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_p6.Location = new System.Drawing.Point(221, 16);
+            this.dataGridView_p6.Name = "dataGridView_p6";
+            this.dataGridView_p6.ReadOnly = true;
+            this.dataGridView_p6.RowHeadersWidth = 20;
+            this.dataGridView_p6.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView_p6.RowTemplate.Height = 21;
+            this.dataGridView_p6.Size = new System.Drawing.Size(620, 365);
+            this.dataGridView_p6.TabIndex = 78;
+            this.dataGridView_p6.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellDoubleClick__DataGridView_p6);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(11, 69);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 76;
+            this.label11.Text = "消費上限";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(130, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(12, 12);
+            this.label10.TabIndex = 75;
+            this.label10.Text = "F";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 12);
+            this.label9.TabIndex = 74;
+            this.label9.Text = "移動時間";
+            // 
+            // framesNpcMoveBox_p6
+            // 
+            this.framesNpcMoveBox_p6.Location = new System.Drawing.Point(70, 42);
+            this.framesNpcMoveBox_p6.Maximum = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.framesNpcMoveBox_p6.Minimum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.framesNpcMoveBox_p6.Name = "framesNpcMoveBox_p6";
+            this.framesNpcMoveBox_p6.Size = new System.Drawing.Size(54, 19);
+            this.framesNpcMoveBox_p6.TabIndex = 73;
+            this.toolTip1.SetToolTip(this.framesNpcMoveBox_p6, "ビルまたはコロシアムから出た場合は49F、それ以外の建物から出た場合は48F");
+            this.framesNpcMoveBox_p6.Value = new decimal(new int[] {
+            48,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(142, 69);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 12);
+            this.label8.TabIndex = 72;
+            this.label8.Text = "[F]";
+            // 
+            // maxFrames_p6
+            // 
+            this.maxFrames_p6.Location = new System.Drawing.Point(70, 67);
+            this.maxFrames_p6.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.maxFrames_p6.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.maxFrames_p6.Name = "maxFrames_p6";
+            this.maxFrames_p6.Size = new System.Drawing.Size(68, 19);
+            this.maxFrames_p6.TabIndex = 71;
+            this.maxFrames_p6.Value = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            // 
+            // calcButton_p6
+            // 
+            this.calcButton_p6.Location = new System.Drawing.Point(31, 92);
+            this.calcButton_p6.Name = "calcButton_p6";
+            this.calcButton_p6.Size = new System.Drawing.Size(107, 46);
+            this.calcButton_p6.TabIndex = 70;
+            this.calcButton_p6.Text = "計算";
+            this.calcButton_p6.UseVisualStyleBackColor = true;
+            this.calcButton_p6.Click += new System.EventHandler(this.OnClickCalcButton_p6);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 12);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "NPC待機";
+            // 
+            // minWaitBox_p6
+            // 
+            this.minWaitBox_p6.DecimalPlaces = 2;
+            this.minWaitBox_p6.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.minWaitBox_p6.Location = new System.Drawing.Point(70, 17);
+            this.minWaitBox_p6.Maximum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.minWaitBox_p6.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.minWaitBox_p6.Name = "minWaitBox_p6";
+            this.minWaitBox_p6.Size = new System.Drawing.Size(54, 19);
+            this.minWaitBox_p6.TabIndex = 26;
+            this.minWaitBox_p6.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(130, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 12);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "秒以上";
             // 
             // label63
             // 
@@ -898,6 +1099,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.minFrameBox_p4)).EndInit();
             this.tabPage_ByBlinkInBattle.ResumeLayout(false);
             this.tabPage_ByBlinkInBattle.PerformLayout();
+            this.tabPage_PyriteNPC.ResumeLayout(false);
+            this.tabPage_PyriteNPC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_p6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.framesNpcMoveBox_p6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxFrames_p6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minWaitBox_p6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coolTimeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerFrequencyBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timerBreakingFramesBox)).EndInit();
@@ -967,5 +1174,18 @@
         private System.Windows.Forms.Button searchGapsButton_p3;
         private System.Windows.Forms.Button searchGapsButton_p2;
         private System.Windows.Forms.Button searchGapsButton_p1;
+        private System.Windows.Forms.TabPage tabPage_PyriteNPC;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown minWaitBox_p6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown framesNpcMoveBox_p6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown maxFrames_p6;
+        private System.Windows.Forms.Button calcButton_p6;
+        private System.Windows.Forms.DataGridView dataGridView_p6;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

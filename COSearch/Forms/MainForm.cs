@@ -146,21 +146,23 @@ namespace COSearch
                 default:
                     return currentSeed.EnumerateSeed();
                 case 1:
-                    return currentSeed.EnumerateSeed(new PyriteCave());
+                    return currentSeed.EnumerateSeed(new PyriteTown().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4))));
                 case 2:
-                    return currentSeed.EnumerateSeed(new CipherLabB2F());
+                    return currentSeed.EnumerateSeed(new PyriteCave().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4))));
                 case 3:
-                    return currentSeed.EnumerateSeed(new CipherLabB3F());
+                    return currentSeed.EnumerateSeed(new CipherLabB2F());
                 case 4:
-                    return currentSeed.EnumerateSeed(new OutskirtStand());
+                    return currentSeed.EnumerateSeed(new CipherLabB3F());
                 case 5:
+                    return currentSeed.EnumerateSeed(new OutskirtStand().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4))));
+                case 6:
                     return currentSeed.EnumerateSeed(
                         new BlinkObjectEnumeratorHanlder(
                             new BlinkObject(10, 10),
                             new BlinkObject(10, 10),
                         new BlinkObject((int)numericUpDown2.Value, 10))
                     );
-                case 6:
+                case 7:
                     return currentSeed.EnumerateSeed(
                         new BlinkObjectEnumeratorHanlder(
                             new BlinkObject(10, 10),

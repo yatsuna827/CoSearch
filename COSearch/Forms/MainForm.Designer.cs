@@ -34,13 +34,16 @@
             this.tabPage_FindTarget = new System.Windows.Forms.TabPage();
             this.tabControl_p2 = new System.Windows.Forms.TabControl();
             this.tabPage_FindTarget_FromNearby = new System.Windows.Forms.TabPage();
+            this.findTargetFromNearbyCriteriaArea = new COSearch.FindTargetCriteriaArea();
             this.CalcButton_FindTarget_FromNearBy = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.maxAdvances_FindTarget_FromNearBy = new System.Windows.Forms.NumericUpDown();
             this.minAdvances_FindTarget_FromNearBy = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.currentSeedBox_FindTarget_FromNearby = new COSearch.SeedBox();
             this.tabPage_FindTarget_FromSeed = new System.Windows.Forms.TabPage();
+            this.findTargetFromSeedCriteriaArea = new COSearch.FindTargetCriteriaArea();
             this.checkDeduplication = new System.Windows.Forms.CheckBox();
             this.calcButton_FindTarget_FromSeed = new System.Windows.Forms.Button();
             this.tabPage_ListUp = new System.Windows.Forms.TabPage();
@@ -52,6 +55,7 @@
             this.maxFrameBox_ListUp = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.currentSeedBox_ListUp = new COSearch.SeedBox();
             this.forcedAdvancesBox = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -64,10 +68,6 @@
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.checkAfterEnding = new System.Windows.Forms.CheckBox();
-            this.findTargetFromNearbyCriteriaArea = new COSearch.FindTargetCriteriaArea();
-            this.currentSeedBox_FindTarget_FromNearby = new COSearch.SeedBox();
-            this.findTargetFromSeedCriteriaArea = new COSearch.FindTargetCriteriaArea();
-            this.currentSeedBox_ListUp = new COSearch.SeedBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.メニューToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.starterRNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -139,6 +139,13 @@
             this.tabPage_FindTarget_FromNearby.Text = "現在位置付近から探す";
             this.tabPage_FindTarget_FromNearby.UseVisualStyleBackColor = true;
             // 
+            // findTargetFromNearbyCriteriaArea
+            // 
+            this.findTargetFromNearbyCriteriaArea.Location = new System.Drawing.Point(25, 72);
+            this.findTargetFromNearbyCriteriaArea.Name = "findTargetFromNearbyCriteriaArea";
+            this.findTargetFromNearbyCriteriaArea.Size = new System.Drawing.Size(480, 195);
+            this.findTargetFromNearbyCriteriaArea.TabIndex = 355;
+            // 
             // CalcButton_FindTarget_FromNearBy
             // 
             this.CalcButton_FindTarget_FromNearBy.Location = new System.Drawing.Point(430, 273);
@@ -207,6 +214,17 @@
             this.label11.TabIndex = 349;
             this.label11.Text = "検索範囲";
             // 
+            // currentSeedBox_FindTarget_FromNearby
+            // 
+            this.currentSeedBox_FindTarget_FromNearby.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentSeedBox_FindTarget_FromNearby.Location = new System.Drawing.Point(82, 16);
+            this.currentSeedBox_FindTarget_FromNearby.MaxLength = 8;
+            this.currentSeedBox_FindTarget_FromNearby.Name = "currentSeedBox_FindTarget_FromNearby";
+            this.currentSeedBox_FindTarget_FromNearby.Size = new System.Drawing.Size(100, 22);
+            this.currentSeedBox_FindTarget_FromNearby.TabIndex = 341;
+            this.currentSeedBox_FindTarget_FromNearby.Text = "3ED5720F";
+            this.currentSeedBox_FindTarget_FromNearby.ZeroPadding = false;
+            // 
             // tabPage_FindTarget_FromSeed
             // 
             this.tabPage_FindTarget_FromSeed.Controls.Add(this.findTargetFromSeedCriteriaArea);
@@ -219,6 +237,13 @@
             this.tabPage_FindTarget_FromSeed.TabIndex = 1;
             this.tabPage_FindTarget_FromSeed.Text = "目標seedから探す";
             this.tabPage_FindTarget_FromSeed.UseVisualStyleBackColor = true;
+            // 
+            // findTargetFromSeedCriteriaArea
+            // 
+            this.findTargetFromSeedCriteriaArea.Location = new System.Drawing.Point(15, 54);
+            this.findTargetFromSeedCriteriaArea.Name = "findTargetFromSeedCriteriaArea";
+            this.findTargetFromSeedCriteriaArea.Size = new System.Drawing.Size(480, 195);
+            this.findTargetFromSeedCriteriaArea.TabIndex = 356;
             // 
             // checkDeduplication
             // 
@@ -307,6 +332,7 @@
             this.advanceModeBox_ListUp.FormattingEnabled = true;
             this.advanceModeBox_ListUp.Items.AddRange(new object[] {
             "通常",
+            "パイラタウン",
             "パイラの洞窟",
             "ダークポケモン研究所B2F",
             "ダークポケモン研究所B3F",
@@ -366,6 +392,17 @@
             this.label10.Size = new System.Drawing.Size(63, 12);
             this.label10.TabIndex = 12;
             this.label10.Text = "現在のseed";
+            // 
+            // currentSeedBox_ListUp
+            // 
+            this.currentSeedBox_ListUp.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentSeedBox_ListUp.Location = new System.Drawing.Point(90, 13);
+            this.currentSeedBox_ListUp.MaxLength = 8;
+            this.currentSeedBox_ListUp.Name = "currentSeedBox_ListUp";
+            this.currentSeedBox_ListUp.Size = new System.Drawing.Size(100, 22);
+            this.currentSeedBox_ListUp.TabIndex = 339;
+            this.currentSeedBox_ListUp.Text = "3ED5720F";
+            this.currentSeedBox_ListUp.ZeroPadding = false;
             // 
             // forcedAdvancesBox
             // 
@@ -492,42 +529,6 @@
             this.checkAfterEnding.UseVisualStyleBackColor = true;
             this.checkAfterEnding.Visible = false;
             // 
-            // findTargetFromNearbyCriteriaArea
-            // 
-            this.findTargetFromNearbyCriteriaArea.Location = new System.Drawing.Point(25, 72);
-            this.findTargetFromNearbyCriteriaArea.Name = "findTargetFromNearbyCriteriaArea";
-            this.findTargetFromNearbyCriteriaArea.Size = new System.Drawing.Size(480, 195);
-            this.findTargetFromNearbyCriteriaArea.TabIndex = 355;
-            // 
-            // currentSeedBox_FindTarget_FromNearby
-            // 
-            this.currentSeedBox_FindTarget_FromNearby.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentSeedBox_FindTarget_FromNearby.Location = new System.Drawing.Point(82, 16);
-            this.currentSeedBox_FindTarget_FromNearby.MaxLength = 8;
-            this.currentSeedBox_FindTarget_FromNearby.Name = "currentSeedBox_FindTarget_FromNearby";
-            this.currentSeedBox_FindTarget_FromNearby.Size = new System.Drawing.Size(100, 22);
-            this.currentSeedBox_FindTarget_FromNearby.TabIndex = 341;
-            this.currentSeedBox_FindTarget_FromNearby.Text = "3ED5720F";
-            this.currentSeedBox_FindTarget_FromNearby.ZeroPadding = false;
-            // 
-            // findTargetFromSeedCriteriaArea
-            // 
-            this.findTargetFromSeedCriteriaArea.Location = new System.Drawing.Point(15, 54);
-            this.findTargetFromSeedCriteriaArea.Name = "findTargetFromSeedCriteriaArea";
-            this.findTargetFromSeedCriteriaArea.Size = new System.Drawing.Size(480, 195);
-            this.findTargetFromSeedCriteriaArea.TabIndex = 356;
-            // 
-            // currentSeedBox_ListUp
-            // 
-            this.currentSeedBox_ListUp.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentSeedBox_ListUp.Location = new System.Drawing.Point(90, 13);
-            this.currentSeedBox_ListUp.MaxLength = 8;
-            this.currentSeedBox_ListUp.Name = "currentSeedBox_ListUp";
-            this.currentSeedBox_ListUp.Size = new System.Drawing.Size(100, 22);
-            this.currentSeedBox_ListUp.TabIndex = 339;
-            this.currentSeedBox_ListUp.Text = "3ED5720F";
-            this.currentSeedBox_ListUp.ZeroPadding = false;
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -549,7 +550,7 @@
             // starterRNGToolStripMenuItem
             // 
             this.starterRNGToolStripMenuItem.Name = "starterRNGToolStripMenuItem";
-            this.starterRNGToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.starterRNGToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.starterRNGToolStripMenuItem.Text = "ID調整";
             this.starterRNGToolStripMenuItem.Click += new System.EventHandler(this.OnClick__StarterRNGToolStripMenuItem);
             // 

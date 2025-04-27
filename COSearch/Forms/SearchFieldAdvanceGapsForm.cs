@@ -22,6 +22,7 @@ namespace COSearch
 {
     public enum FieldAdvanceType
     {
+        PyriteTown,
         PyriteCave,
         CipherLabB2F,
         CipherLabB3F,
@@ -36,12 +37,18 @@ namespace COSearch
             InitializeComponent();
 
             _darkPokemon = pokemon;
-            _fieldAdvanceSource = new ISeedEnumeratorHandler[] { new PyriteCave(), new CipherLabB2F(), new CipherLabB3F(), new OutskirtStand() }[(int)fieldAdvanceType];
+            _fieldAdvanceSource = new ISeedEnumeratorHandler[] {
+                new PyriteTown().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4))), 
+                new PyriteCave().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4))), 
+                new CipherLabB2F(),
+                new CipherLabB3F(),
+                new OutskirtStand().Apply((_, c) => c.SimulateNextFrame(_.NextSeed(4)))
+            }[(int)fieldAdvanceType];
             _currentSeed = currentSeed;
             _targetBlinkFrames = targetBlinkFrames;
             _targetFrames = targetFrames;
 
-            var field = new[] { "パイラの洞窟", "ダークポケモン研究所B2F", "ダークポケモン研究所B3F", "町外れのスタンド" }[(int)fieldAdvanceType];
+            var field = new[] { "パイラタウン", "パイラの洞窟", "ダークポケモン研究所B2F", "ダークポケモン研究所B3F", "町外れのスタンド" }[(int)fieldAdvanceType];
             this.Text = $"ズレ検索 - {pokemon.Slot.Species.Name} @ {field}";
             this.currentSeedBox.Text = $"{currentSeed:X8}";
             this.targetSeedBox.Text = $"{targetSeed:X8}";

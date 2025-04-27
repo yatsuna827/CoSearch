@@ -10,6 +10,7 @@ namespace COSearch
     {
         private static readonly Dictionary<string, uint> _forcedAdvances = new Dictionary<string, uint>()
         {
+            { "テッポウオ", 4 },
             { "ノコッチ", 4 },
             { "グライガー", 4 },
             { "オドシシ", 4 },
